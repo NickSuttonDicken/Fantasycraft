@@ -1,0 +1,9 @@
+{
+	"type": "origins:invisibility",
+	"render_armor": true,
+	"condition": {
+		"type": "origins:sneaking"
+	},
+	"name": "Hobbit Sneak",
+	"description": "Due to their small size Hobbits can blend into their surroundings and appear invisible when sneaking"
+}

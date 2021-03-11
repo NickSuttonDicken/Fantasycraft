@@ -1,0 +1,10 @@
+{
+ "replace": false,
+ "origins": [
+ 	"fantasyorigins:elf",
+ 	"fantasyorigins:triton",
+ 	"fantasyorigins:dwarf",
+ 	"fantasyorigins:hobbit",
+ 	"fantasyorigins:orc"
+ ]
+}

@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"fantasyorigins:elven_sight",
+		"fantasyorigins:elven_grace",
+		"fantasyorigins:elven_agility",
+		"fantasyorigins:bow_mastery",
+		"fantasyorigins:bow_mastery_arrows",
+		"fantasyorigins:underground_fatigue",
+		"origins:sprint_jump",
+		"origins:light_armor",
+		"origins:carnivore"
+	],
+	"icon": "minecraft:bow",
+	"order": 9,
+	"impact": 2,
+	"name": "Elf",
+	"description": "A simple Elf Origin datapack"
+}

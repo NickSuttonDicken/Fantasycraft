@@ -1,0 +1,11 @@
+ {
+  "type": "origins:prevent_sleep",
+  "block_condition": {
+    "type": "origins:height",
+	"comparison": ">=",
+	"compare_to": 32
+  },
+  "message": "You can not sleep here, try a bed lower than or equal to y = 32.",
+  "name": "Dwarven Slumber",
+  "description": "Having lived far underground for generations, Dwarves are unable to sleep above y = 32"
+}

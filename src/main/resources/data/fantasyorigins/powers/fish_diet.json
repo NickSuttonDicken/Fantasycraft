@@ -1,0 +1,19 @@
+{
+  "name": "Fish Diet",
+  "description": "Triton's have adaption to get more nutrition out of all types of fish, cooked or not",
+  "type": "origins:modify_food",
+  "item_condition": {
+  	"type": "origins:ingredient",
+  	"ingredient": {
+  		"tag": "fishes"
+  	}
+  },
+  "food_modifier": {
+  	"value": 2,
+  	"operation": "addition"
+  },
+  "saturation_modifier":{
+  	"value": 1,
+  	"operation": "addition"
+  }
+}

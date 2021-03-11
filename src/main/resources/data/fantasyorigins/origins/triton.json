@@ -1,0 +1,16 @@
+{
+	"powers": [
+		"fantasyorigins:triton_spawn",
+		"fantasyorigins:triton_biology",
+		"fantasyorigins:triton_biology_modifier",
+		"fantasyorigins:triton_warrior",
+		"fantasyorigins:ocean_power",
+		"fantasyorigins:dry_fatigue",
+		"fantasyorigins:fish_diet"
+	],
+	"icon": "minecraft:trident",
+	"order": 6,
+	"impact": 2,
+	"name": "Triton",
+	"description": "A simple Triton Origin datapack"
+}

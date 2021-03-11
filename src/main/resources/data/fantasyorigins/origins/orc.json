@@ -1,0 +1,16 @@
+{
+	"powers": [
+		"fantasyorigins:orcish_stature",
+		"fantasyorigins:orcish_stature_modifiers",
+		"fantasyorigins:averison_to_shirts",
+		"fantasyorigins:orcish_warrior",
+		"fantasyorigins:orcish_stomach",
+		"fantasyorigins:orcish_stomach_modifiers",
+		"origins:carnivore"
+	],
+	"icon": "minecraft:netherite_axe",
+	"order": 8,
+	"impact": 2,
+	"name": "Orc",
+	"description": "A simple Orc Origin datapack"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "origins:attribute",
+  "modifiers":
+  [
+	{
+	  "name": "Origin modifier",
+	  "attribute": "generic.max_health",
+	  "value": -4,
+	  "operation": "addition"
+	},
+	{
+	  "name": "Origin modifier",
+	  "attribute": "generic.movement_speed",
+	  "value": -0.01,
+	  "operation": "addition"
+	}
+
+],
+  "hidden": true
+}

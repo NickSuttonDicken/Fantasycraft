@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.fabricmc.fantasycraft.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "FantasycraftMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

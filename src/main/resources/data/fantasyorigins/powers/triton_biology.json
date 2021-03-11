@@ -1,0 +1,32 @@
+{
+	"name": "Triton Biology",
+	"description": "Triton's are suited to marine life so when they go on land their bodies dry up reducing their overall health, but while they're in water they have increased health",
+	"type": "origins:conditioned_attribute",
+	"modifier": {
+		"name": "Health modifier",
+		"attribute": "generic.max_health",
+		"value": -10,
+		"operation": "addition"
+	},
+	"condition": {
+		"type": "origins:and",
+		"conditions": [
+			{
+				"type": "origins:submerged_in",
+				"fluid": "minecraft:water",
+				"inverted": true
+			},
+			{
+				"type": "origins:in_rain",
+				"inverted": true
+			},
+			{
+				"type": "origins:fluid_height",
+				"fluid": "minecraft:water",
+				"comparison": "<=",
+				"compare_to": 0.1
+			}
+		]
+	},
+	"tick_rate": 20
+}

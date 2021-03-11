@@ -1,0 +1,17 @@
+{
+	"powers": [
+		"fantasyorigins:miner_vision",
+		"fantasyorigins:heavy_armor",
+		"fantasyorigins:dwarven_might",
+		"fantasyorigins:depth_sleep",
+		"fantasyorigins:surface_fatigue",
+		"fantasyorigins:dwarven_size",
+		"fantasyorigins:dwarven_size_modifiers",
+		"fantasyorigins:dwarven_skin"
+	],
+	"icon": "minecraft:netherite_pickaxe",
+	"order": 10,
+	"impact": 2,
+	"name": "Dwarf",
+	"description": "A simple Dwarf Origin datapack"
+}

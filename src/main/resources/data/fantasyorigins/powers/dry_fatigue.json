@@ -1,0 +1,12 @@
+{
+  "name": "Dry Fatigue",
+  "description": "Triton's faitgue faster out of water",
+  "type": "origins:exhaust",
+  "interval": 100,
+  "exhaustion": 2,
+  "condition": {
+  	"type": "origins:submerged_in",
+    "fluid": "minecraft:water",
+    "inverted": true
+  }
+}

@@ -1,0 +1,10 @@
+  
+{
+  "type": "origins:effect_immunity",
+  "effects": [
+    "minecraft:poison",
+    "minecraft:hunger"
+  ],
+  "name": "Orcish Stomach",
+  "description": "Orcs are able to eat many foods without ill effects, Orcs can consume rotten flesh which gives more hunger than normal"
+}

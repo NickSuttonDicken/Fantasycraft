@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients" : [
+    {
+      "item" : "fantasycraft:mithril_block"
+    }
+  ],
+  "result": {
+    "item": "fantasycraft:mithril_ingot",
+    "count": 9
+  }
+}

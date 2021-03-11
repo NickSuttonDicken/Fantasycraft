@@ -1,0 +1,14 @@
+{
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "give @s minecraft:arrow 32",
+		"permission_level": 4
+	},
+	"cooldown": 6000,
+	"hud_render": {
+		"should_render": true
+	},
+	"key": "primary",
+	"hidden": true
+}

@@ -1,0 +1,9 @@
+{
+  "type": "origins:invulnerability",
+  "damage_condition": {
+    "type": "origins:name",
+    "name": "fall"
+  },
+  "name": "Elven Grace",
+  "description": "Elves are able to fall any distance without harm"
+}

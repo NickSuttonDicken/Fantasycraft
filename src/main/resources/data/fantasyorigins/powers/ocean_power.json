@@ -1,0 +1,42 @@
+{
+	"type": "origins:stacking_status_effect",
+	"min_stacks": 0,
+	"max_stacks": 10,
+	"duration_per_stack": 20,
+	"effects": [
+		{
+			"effect": "conduit_power",
+			"duration": 1,
+			"amplifier": 10,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		},
+		{
+			"effect": "dolphins_grace",
+			"duration": 1,
+			"amplifier": 1,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		}
+	],
+	"condition": {
+		"type": "origins:or",
+		"conditions": [
+			{
+				"type": "origins:submerged_in",
+				"fluid": "minecraft:water"
+			},
+			{
+				"type": "origins:in_rain"
+			},
+			{
+				"type": "origins:fluid_height",
+				"fluid": "minecraft:water",
+				"comparison": ">=",
+				"compare_to": 0.5
+			}
+		]
+	}
+}

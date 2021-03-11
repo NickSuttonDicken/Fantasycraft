@@ -1,0 +1,109 @@
+package net.fabricmc.fantasycraft;
+
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+import net.fabricmc.fabric.impl.biome.modification.BiomeModificationContextImpl;
+import net.fabricmc.fantasycraft.armor.MithrilArmorMaterial;
+import net.fabricmc.fantasycraft.blocks.MithrilBlock;
+import net.fabricmc.fantasycraft.blocks.MithrilOre;
+import net.fabricmc.fantasycraft.items.MithrilIngot;
+import net.fabricmc.fantasycraft.tools.*;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.*;
+import net.minecraft.util.Arm;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
+import org.lwjgl.system.CallbackI;
+
+import javax.tools.Tool;
+
+public class FantasycraftMain implements ModInitializer {
+
+	//Item Group
+	public static final ItemGroup Fantasycraft = FabricItemGroupBuilder.build(
+			new Identifier("fantasycraft", "general"),
+			() -> new ItemStack(FantasycraftMain.MITHRIL_SWORD));
+
+	//Items
+	public static final MithrilIngot MITHRIL_INGOT = new MithrilIngot(new Item.Settings().group(FantasycraftMain.Fantasycraft));
+
+	//Blocks
+	public static final MithrilBlock MITHRIL_BLOCK = new MithrilBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).breakByTool(FabricToolTags.PICKAXES, 4).requiresTool());
+	public static final MithrilOre MITHRIL_ORE = new MithrilOre(FabricBlockSettings.of(Material.STONE).breakByHand(false).strength(4.0f).breakByTool(FabricToolTags.PICKAXES, 4).requiresTool());
+
+	//Tools
+	public static ToolItem MITHRIL_SHOVEL = new MithrilShovel(MithrilMaterial.INSTANCE, 6.5f, -3.0f, new Item.Settings().group(FantasycraftMain.Fantasycraft));
+	public static ToolItem MITHRIL_PICKAXE = new MithrilPickaxe(MithrilMaterial.INSTANCE, 7, -2.8f, new Item.Settings().group(FantasycraftMain.Fantasycraft));
+	public static ToolItem MITHRIL_AXE = new MithrilAxe(MithrilMaterial.INSTANCE, 10, -3.0f, new Item.Settings().group(FantasycraftMain.Fantasycraft));
+	public static ToolItem MITHRIL_HOE = new MithrilHoe(MithrilMaterial.INSTANCE, 1, 0f, new Item.Settings().group(FantasycraftMain.Fantasycraft));
+	public static ToolItem MITHRIL_SWORD = new MithrilSword(MithrilMaterial.INSTANCE, 8, -2.4f, new Item.Settings().group(FantasycraftMain.Fantasycraft));
+
+	//Armor
+	public static final ArmorMaterial MITHRIL_ARMOR_MATERIAL = new MithrilArmorMaterial();
+	public static final Item MITHRIL_HELMET = new ArmorItem(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(FantasycraftMain.Fantasycraft));
+	public static final Item MITHRIL_CHESTPLATE = new ArmorItem(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(FantasycraftMain.Fantasycraft));
+	public static final Item MITHRIL_LEGGINGS = new ArmorItem(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().group(FantasycraftMain.Fantasycraft));
+	public static final Item MITHRIL_BOOTS = new ArmorItem(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().group(FantasycraftMain.Fantasycraft));
+
+	//Mithril Ore Generation
+	private static ConfiguredFeature<?,?> ORE_MITHRIL_OVERWORLD = Feature.ORE
+			.configure(new OreFeatureConfig(
+					OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+					FantasycraftMain.MITHRIL_ORE.getDefaultState(),
+					4))
+			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
+					0,
+					0,
+					15
+			)))
+			.spreadHorizontally()
+			.repeat(2);
+
+
+
+	@Override
+	public void onInitialize() {
+		//Blocks Registration
+		Registry.register(Registry.BLOCK, new Identifier("fantasycraft", "mithril_ore"), MITHRIL_ORE);
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_ore"), new BlockItem(MITHRIL_ORE, new FabricItemSettings().group(FantasycraftMain.Fantasycraft)));
+		Registry.register(Registry.BLOCK, new Identifier("fantasycraft", "mithril_block"), MITHRIL_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_block"), new BlockItem(MITHRIL_BLOCK, new FabricItemSettings().group(FantasycraftMain.Fantasycraft)));
+
+		//Items Registration
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_ingot"), MITHRIL_INGOT);
+
+		//Tools Registration
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_pickaxe"), MITHRIL_PICKAXE);
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_shovel"), MITHRIL_SHOVEL);
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_axe"), MITHRIL_AXE);
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_hoe"), MITHRIL_HOE);
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_sword"), MITHRIL_SWORD);
+
+		//Armor Registration
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_helmet"), MITHRIL_HELMET);
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_chestplate"), MITHRIL_CHESTPLATE);
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_leggings"), MITHRIL_LEGGINGS);
+		Registry.register(Registry.ITEM, new Identifier("fantasycraft", "mithril_boots"), MITHRIL_BOOTS);
+
+		//World Generation Registration
+		RegistryKey<ConfiguredFeature<?,?>> oreMithrilOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+				new Identifier("fantasycraft", "ore_mithril_overworld"));
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreMithrilOverworld.getValue(), ORE_MITHRIL_OVERWORLD);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreMithrilOverworld);
+	}
+}

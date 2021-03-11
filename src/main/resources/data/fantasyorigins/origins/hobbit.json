@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"fantasyorigins:hobbit_size",
+		"fantasyorigins:hobbit_size_modifiers",
+		"fantasyorigins:hobbit_jump_modifiers",
+		"fantasyorigins:hobbit_sneak"
+	],
+	"icon": "minecraft:netherite_hoe",
+	"order": 7,
+	"impact": 2,
+	"name": "Hobbit",
+	"description": "A simple Hobbit Origin datapack"
+}

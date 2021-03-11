@@ -1,0 +1,27 @@
+  
+{
+  "name": "Underground Fatigue",
+  "description": "Elves exhaust faster underground",
+  "type": "origins:exhaust",
+  "interval": 100,
+  "exhaustion": 2,
+  "condition": {
+  	"type": "origins:and",
+  	"conditions": [
+  		{
+  			"type": "origins:on_block",
+  			"block_condition": {
+  				"type": "origins:height",
+  				"comparison": ">=",
+  				"compare_to": 62
+  			},
+  			"inverted": true
+  		},
+  		{
+  			"type": "origins:exposed_to_sky",
+  			"inverted": true
+  		}
+  	]
+  	
+  }
+}

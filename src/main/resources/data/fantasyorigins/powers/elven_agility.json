@@ -1,0 +1,13 @@
+  
+{
+  "type": "origins:attribute",
+  "modifier": 
+	{
+	  "name": "Origin modifier",
+	  "attribute": "generic.movement_speed",
+	  "value": 0.05,
+	  "operation": "addition"
+	},
+	"name": "Elven Agility",
+	"description": "Elves are able to move quickly"
+}
