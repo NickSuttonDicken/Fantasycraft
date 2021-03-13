@@ -1,9 +1,8 @@
 {
-  "type": "minecraft:smelting",
+  "type": "fantasycraft:dwarven_blast_furnace",
   "ingredient": {
     "item": "fantasycraft:mithril_ore"
   },
   "result": "fantasycraft:mithril_ingot",
-  "experience": 4,
-  "cookingtime": 200
+  "experience": 4
 }

@@ -14,16 +14,19 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/fantasycraft/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
       "net.fabricmc.fantasycraft.FantasycraftMain"
+    ],
+    "client": [
+      "net.fabricmc.fantasycraft.client.FantasycraftClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "fantasycraft.mixins.json"
   ],
 
   "depends": {
@@ -33,5 +36,6 @@
   },
   "suggests": {
     "another-mod": "*"
-  }
+  },
+  "accessWidener": "fantasycraft.accesswidener"
 }
