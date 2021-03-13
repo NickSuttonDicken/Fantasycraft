@@ -1,7 +1,6 @@
-package net.fabricmc.fantasycraft.tools;
+package net.fabricmc.fantasycraft.tools.mithril;
 
-import net.fabricmc.fantasycraft.FantasycraftMain;
-import net.minecraft.item.Items;
+import net.fabricmc.fantasycraft.register.Registration;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -14,7 +13,7 @@ public class MithrilMaterial implements ToolMaterial {
         return 3069;
     }
     public float getMiningSpeedMultiplier() {
-        return 10.0f;
+        return 11.0f;
     }
     public float getAttackDamage() {
         return 0.0f;
@@ -26,6 +25,6 @@ public class MithrilMaterial implements ToolMaterial {
         return 22;
     }
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(FantasycraftMain.MITHRIL_INGOT);
+        return Ingredient.ofItems(Registration.MITHRIL_INGOT);
     }
 }

@@ -1,4 +1,4 @@
-package net.fabricmc.fantasycraft.blocks;
+package net.fabricmc.fantasycraft.blocks.materialblocks;
 
 import net.minecraft.block.Block;
 

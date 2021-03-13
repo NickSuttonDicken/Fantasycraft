@@ -2,6 +2,7 @@ package net.fabricmc.fantasycraft.entity;
 
 import net.fabricmc.fantasycraft.FantasycraftMain;
 import net.fabricmc.fantasycraft.client.DwarvenBlastFurnaceScreenHandler;
+import net.fabricmc.fantasycraft.register.Registration;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
@@ -11,7 +12,7 @@ import net.minecraft.text.TranslatableText;
 
 public class DwarvenBlastFurnaceEntity extends AbstractFurnaceBlockEntity {
     public DwarvenBlastFurnaceEntity(){
-        super(FantasycraftMain.DWARVEN_BLAST_FURNACE_ENTITY, FantasycraftMain.DWARVEN_BLASTING_RECIPE_TYPE);
+        super(Registration.DWARVEN_BLAST_FURNACE_ENTITY, Registration.DWARVEN_BLASTING_RECIPE_TYPE);
     }
 
     @Override

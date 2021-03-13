@@ -1,6 +1,7 @@
 package net.fabricmc.fantasycraft.armor;
 
 import net.fabricmc.fantasycraft.FantasycraftMain;
+import net.fabricmc.fantasycraft.register.Registration;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -33,7 +34,7 @@ public class MithrilArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(FantasycraftMain.MITHRIL_INGOT);
+        return Ingredient.ofItems(Registration.MITHRIL_INGOT);
     }
 
     @Override

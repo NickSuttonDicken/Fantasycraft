@@ -1,4 +1,4 @@
-package net.fabricmc.fantasycraft.tools;
+package net.fabricmc.fantasycraft.tools.mithril;
 
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;

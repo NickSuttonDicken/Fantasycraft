@@ -1,4 +1,4 @@
-package net.fabricmc.fantasycraft.items;
+package net.fabricmc.fantasycraft.items.ingots;
 
 import net.minecraft.item.Item;
 

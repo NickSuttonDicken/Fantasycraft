@@ -1,4 +1,4 @@
-package net.fabricmc.fantasycraft.blocks;
+package net.fabricmc.fantasycraft.blocks.containers;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
