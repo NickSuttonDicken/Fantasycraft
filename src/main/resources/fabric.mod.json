@@ -19,10 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.fantasycraft.FantasycraftMain"
+      "net.froztigaming.fantasycraft.FantasycraftMain"
     ],
     "client": [
-      "net.fabricmc.fantasycraft.client.FantasycraftClient"
+
     ]
   },
   "mixins": [

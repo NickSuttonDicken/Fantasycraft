@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "fantasycraft:item/mithril_helmet"
+    "layer0": "fantasycraft:items/mithril_helmet"
   }
 }

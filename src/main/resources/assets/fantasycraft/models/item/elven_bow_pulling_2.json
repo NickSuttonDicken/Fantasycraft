@@ -1,0 +1,6 @@
+{
+    "parent": "fantasycraft:item/elven_bow",
+    "textures": {
+        "layer0": "fantasycraft:items/elven_bow_pulling_2"
+    }
+}

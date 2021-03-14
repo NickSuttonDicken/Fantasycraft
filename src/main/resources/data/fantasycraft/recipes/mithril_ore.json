@@ -1,8 +1,0 @@
-{
-  "type": "fantasycraft:dwarven_blast_furnace",
-  "ingredient": {
-    "item": "fantasycraft:mithril_ore"
-  },
-  "result": "fantasycraft:mithril_ingot",
-  "experience": 4
-}
