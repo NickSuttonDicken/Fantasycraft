@@ -1,11 +1,16 @@
 package net.froztigaming.fantasycraft.armor;
 
 import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.util.ArmorEffects;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.world.World;
 
 public class MithrilArmorMaterial implements ArmorMaterial {
     private static final int[] BASE_DURABILITY = new int[] {13, 15, 16, 11 };

@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+import net.froztigaming.fantasycraft.armor.MithrilArmor;
 import net.froztigaming.fantasycraft.armor.MithrilArmorMaterial;
 import net.froztigaming.fantasycraft.blocks.containers.DwarvenBlastFurnace;
 import net.froztigaming.fantasycraft.blocks.materialblocks.MithrilBlock;
@@ -47,6 +48,9 @@ public class Registration {
             .icon(() -> new ItemStack(Registration.MITHRIL_SWORD))
             .build();
 
+    //Armor Materials
+    public static final ArmorMaterial MITHRIL_ARMOR_MATERIAL = new MithrilArmorMaterial();
+
     //Items
     public static final MithrilIngot MITHRIL_INGOT = new MithrilIngot(new Item.Settings().group(Fantasycraft));
     public static final ElvenArrow ELVEN_ARROW = new ElvenArrow(new Item.Settings().group(Fantasycraft));
@@ -66,11 +70,10 @@ public class Registration {
 
 
     //Armor
-    public static final ArmorMaterial MITHRIL_ARMOR_MATERIAL = new MithrilArmorMaterial();
-    public static final Item MITHRIL_HELMET = new ArmorItem(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(Fantasycraft));
-    public static final Item MITHRIL_CHESTPLATE = new ArmorItem(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(Fantasycraft));
-    public static final Item MITHRIL_LEGGINGS = new ArmorItem(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().group(Fantasycraft));
-    public static final Item MITHRIL_BOOTS = new ArmorItem(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().group(Fantasycraft));
+    public static final Item MITHRIL_HELMET = new MithrilArmor(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(Fantasycraft));
+    public static final Item MITHRIL_CHESTPLATE = new MithrilArmor(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(Fantasycraft));
+    public static final Item MITHRIL_LEGGINGS = new MithrilArmor(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().group(Fantasycraft));
+    public static final Item MITHRIL_BOOTS = new MithrilArmor(MITHRIL_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().group(Fantasycraft));
 
     //Entities
     public static BlockEntityType DWARVEN_BLAST_FURNACE_ENTITY = BlockEntityType.Builder.create(DwarvenBlastFurnaceEntity::new, DWARVEN_BLAST_FURNACE).build(null);
