@@ -1,28 +1,28 @@
 package net.froztigaming.fantasycraft.register;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.froztigaming.fantasycraft.armor.MithrilArmorMaterial;
 import net.froztigaming.fantasycraft.blocks.containers.DwarvenBlastFurnace;
 import net.froztigaming.fantasycraft.blocks.materialblocks.MithrilBlock;
 import net.froztigaming.fantasycraft.blocks.ores.MithrilOre;
 import net.froztigaming.fantasycraft.entity.DwarvenBlastFurnaceEntity;
+import net.froztigaming.fantasycraft.entity.ElvenArrowEntity;
 import net.froztigaming.fantasycraft.items.ElvenArrow;
 import net.froztigaming.fantasycraft.items.ingots.MithrilIngot;
 import net.froztigaming.fantasycraft.tools.ElvenBow;
 import net.froztigaming.fantasycraft.tools.mithril.*;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -74,6 +74,13 @@ public class Registration {
 
     //Entities
     public static BlockEntityType DWARVEN_BLAST_FURNACE_ENTITY = BlockEntityType.Builder.create(DwarvenBlastFurnaceEntity::new, DWARVEN_BLAST_FURNACE).build(null);
+    public static EntityType<ElvenArrowEntity> ELVEN_ARROW_ENTITY_TYPE = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(MOD_ID, "elven_arrow"),
+            FabricEntityTypeBuilder.<ElvenArrowEntity>create(SpawnGroup.MISC, ElvenArrowEntity::new)
+            .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+            .build()
+    );
 
     //Ore Generation
     private static ConfiguredFeature<?,?> ORE_MITHRIL_OVERWORLD = Feature.ORE
