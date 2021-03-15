@@ -45,3 +45,10 @@ jobs:
     needs:
       - build
     if: ${{ always() }}
+
+    steps:
+      - name: Discord Workflow Status Notifier
+        uses: nobrayner/discord-webhook@v1
+        with:
+          github-token: ${{ secrets.GIT_TOKEN }}
+          discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
