@@ -1,4 +1,4 @@
-package net.froztigaming.fantasycraft.tools;
+package net.froztigaming.fantasycraft.tools.silver;
 
 
 import net.minecraft.enchantment.EnchantmentHelper;

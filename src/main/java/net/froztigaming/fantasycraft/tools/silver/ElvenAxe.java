@@ -1,0 +1,10 @@
+package net.froztigaming.fantasycraft.tools.silver;
+
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.ToolMaterial;
+
+public class ElvenAxe extends AxeItem {
+    public ElvenAxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
+        super(material, attackDamage, attackSpeed, settings);
+    }
+}

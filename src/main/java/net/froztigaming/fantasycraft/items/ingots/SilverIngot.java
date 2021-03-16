@@ -2,8 +2,8 @@ package net.froztigaming.fantasycraft.items.ingots;
 
 import net.minecraft.item.Item;
 
-public class DwarvenSteelIngot extends Item {
-    public DwarvenSteelIngot(Settings settings) {
+public class SilverIngot extends Item {
+    public SilverIngot(Settings settings){
         super(settings);
     }
 }

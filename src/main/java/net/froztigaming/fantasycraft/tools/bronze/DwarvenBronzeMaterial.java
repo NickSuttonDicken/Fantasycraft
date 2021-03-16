@@ -1,16 +1,16 @@
-package net.froztigaming.fantasycraft.tools.mithril;
+package net.froztigaming.fantasycraft.tools.bronze;
 
 import net.froztigaming.fantasycraft.register.Registration;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class MithrilMaterial implements ToolMaterial {
+public class DwarvenBronzeMaterial implements ToolMaterial {
 
-    public static final MithrilMaterial INSTANCE = new MithrilMaterial();
+    public static final DwarvenBronzeMaterial INSTANCE = new DwarvenBronzeMaterial();
 
     @Override
     public int getDurability() {
-        return 3069;
+        return 200;
     }
     public float getMiningSpeedMultiplier() {
         return 10.0f;
@@ -22,7 +22,7 @@ public class MithrilMaterial implements ToolMaterial {
         return 4;
     }
     public int getEnchantability() {
-        return 30;
+        return 10;
     }
     public Ingredient getRepairIngredient() {
         return Ingredient.ofItems(Registration.MITHRIL_INGOT);

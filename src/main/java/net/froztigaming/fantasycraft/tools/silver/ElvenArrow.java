@@ -1,4 +1,4 @@
-package net.froztigaming.fantasycraft.items;
+package net.froztigaming.fantasycraft.tools.silver;
 
 import net.froztigaming.fantasycraft.entity.ElvenArrowEntity;
 import net.minecraft.entity.LivingEntity;

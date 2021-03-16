@@ -1,25 +1,25 @@
-package net.froztigaming.fantasycraft.tools.mithril;
+package net.froztigaming.fantasycraft.tools.silver;
 
 import net.froztigaming.fantasycraft.register.Registration;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class MithrilMaterial implements ToolMaterial {
+public class ElvenMaterial implements ToolMaterial {
 
-    public static final MithrilMaterial INSTANCE = new MithrilMaterial();
+    public static final ElvenMaterial INSTANCE = new ElvenMaterial();
 
     @Override
     public int getDurability() {
-        return 3069;
+        return 2000;
     }
     public float getMiningSpeedMultiplier() {
-        return 10.0f;
+        return 9.0f;
     }
     public float getAttackDamage() {
         return 0.0f;
     }
     public int getMiningLevel() {
-        return 4;
+        return 3;
     }
     public int getEnchantability() {
         return 30;

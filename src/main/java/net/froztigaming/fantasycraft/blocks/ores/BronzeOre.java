@@ -3,10 +3,10 @@ package net.froztigaming.fantasycraft.blocks.ores;
 
 import net.minecraft.block.Block;
 
-import java.util.Set;
 
-public class DwarvenSteelOre extends Block {
-    public DwarvenSteelOre(Settings settings) {
+
+public class BronzeOre extends Block {
+    public BronzeOre(Settings settings) {
         super(settings);
     }
 }
