@@ -2,7 +2,7 @@
   "parent": "minecraft:block/orientable",
   "textures": {
     "top": "fantasycraft:block/dwarven_blast_furnace_top",
-    "front": "fantasycraft:block/dwarven_blast_furnace_front",
+    "front": "fantasycraft:block/dwarven_blast_furnace_front_on",
     "side": "fantasycraft:block/dwarven_blast_furnace_side"
   }
 }
