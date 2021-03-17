@@ -10,7 +10,7 @@ import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.froztigaming.fantasycraft.armor.*;
 import net.froztigaming.fantasycraft.blocks.containers.DwarvenBlastFurnace;
 import net.froztigaming.fantasycraft.blocks.materialblocks.BronzeBlock;
-import net.froztigaming.fantasycraft.blocks.materialblocks.MalachiteBlock;
+import net.froztigaming.fantasycraft.blocks.materialblocks.PrismarineBlock;
 import net.froztigaming.fantasycraft.blocks.materialblocks.MithrilBlock;
 import net.froztigaming.fantasycraft.blocks.materialblocks.SilverBlock;
 import net.froztigaming.fantasycraft.blocks.ores.BronzeOre;
@@ -22,7 +22,7 @@ import net.froztigaming.fantasycraft.tools.bronze.*;
 import net.froztigaming.fantasycraft.tools.malachite.*;
 import net.froztigaming.fantasycraft.tools.silver.*;
 import net.froztigaming.fantasycraft.items.ingots.BronzeIngot;
-import net.froztigaming.fantasycraft.items.ingots.MalachiteIngot;
+import net.froztigaming.fantasycraft.items.ingots.PrismarineIngot;
 import net.froztigaming.fantasycraft.items.ingots.MithrilIngot;
 import net.froztigaming.fantasycraft.items.ingots.SilverIngot;
 import net.froztigaming.fantasycraft.tools.mithril.*;
@@ -66,7 +66,7 @@ public class Registration {
     public static final MithrilIngot MITHRIL_INGOT = new MithrilIngot(new Item.Settings().group(Fantasycraft).fireproof());
     public static final SilverIngot SILVER_INGOT = new SilverIngot(new Item.Settings().group(Fantasycraft));
     public static final BronzeIngot BRONZE_INGOT = new BronzeIngot(new Item.Settings().group(Fantasycraft));
-    public static final MalachiteIngot MALACHITE_INGOT = new MalachiteIngot(new Item.Settings().group(Fantasycraft));
+    public static final PrismarineIngot PRISMARINE_INGOT = new PrismarineIngot(new Item.Settings().group(Fantasycraft));
 
 
     //Blocks
@@ -74,7 +74,7 @@ public class Registration {
     public static final MithrilBlock MITHRIL_BLOCK = new MithrilBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).breakByTool(FabricToolTags.PICKAXES, 4).requiresTool());
     public static final BronzeBlock BRONZE_BLOCK = new BronzeBlock(FabricBlockSettings.of(Material.METAL).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
     public static final SilverBlock SILVER_BLOCK = new SilverBlock(FabricBlockSettings.of(Material.METAL).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
-    public static final MalachiteBlock MALACHITE_BLOCK = new MalachiteBlock(FabricBlockSettings.of(Material.METAL).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
+    public static final PrismarineBlock PRISMARINE_BLOCK = new PrismarineBlock(FabricBlockSettings.of(Material.METAL).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
     public static final MithrilOre MITHRIL_ORE = new MithrilOre(FabricBlockSettings.of(Material.STONE).breakByHand(false).strength(4.0f).breakByTool(FabricToolTags.PICKAXES, 4).requiresTool());
     public static final BronzeOre BRONZE_ORE = new BronzeOre(FabricBlockSettings.of(Material.STONE).breakByHand(false).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
     public static final SilverOre SILVER_ORE = new SilverOre(FabricBlockSettings.of(Material.STONE).breakByHand(false).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
@@ -97,11 +97,11 @@ public class Registration {
     public static ToolItem ELVEN_SWORD = new ElvenSword(ElvenMaterial.INSTANCE, 7, -2.4f, new Item.Settings().group(Fantasycraft));
     public static RangedWeaponItem ELVEN_BOW = new ElvenBow(new Item.Settings().group(Fantasycraft).maxDamage(770));
     public static final ElvenArrow ELVEN_ARROW = new ElvenArrow(new Item.Settings().group(Fantasycraft));
-    public static ToolItem TRITON_SHOVEL = new TritonShovel(TritonMalachiteMaterial.INSTANCE, 5.5f, -3.0f, new Item.Settings().group(Fantasycraft));
-    public static ToolItem TRITON_PICKAXE = new TritonPickaxe(TritonMalachiteMaterial.INSTANCE, 6, -2.8f, new Item.Settings().group(Fantasycraft));
-    public static ToolItem TRITON_AXE = new TritonAxe(TritonMalachiteMaterial.INSTANCE, 9, -3.0f, new Item.Settings().group(Fantasycraft));
-    public static ToolItem TRITON_HOE = new TritonHoe(TritonMalachiteMaterial.INSTANCE, 0, 0f, new Item.Settings().group(Fantasycraft));
-    public static ToolItem TRITON_SWORD = new TritonSword(TritonMalachiteMaterial.INSTANCE, 7, -2.4f, new Item.Settings().group(Fantasycraft));
+    public static ToolItem TRITON_SHOVEL = new TritonShovel(TritonPrismarineMaterial.INSTANCE, 5.5f, -3.0f, new Item.Settings().group(Fantasycraft));
+    public static ToolItem TRITON_PICKAXE = new TritonPickaxe(TritonPrismarineMaterial.INSTANCE, 6, -2.8f, new Item.Settings().group(Fantasycraft));
+    public static ToolItem TRITON_AXE = new TritonAxe(TritonPrismarineMaterial.INSTANCE, 9, -3.0f, new Item.Settings().group(Fantasycraft));
+    public static ToolItem TRITON_HOE = new TritonHoe(TritonPrismarineMaterial.INSTANCE, 0, 0f, new Item.Settings().group(Fantasycraft));
+    public static ToolItem TRITON_SWORD = new TritonSword(TritonPrismarineMaterial.INSTANCE, 7, -2.4f, new Item.Settings().group(Fantasycraft));
 
 
     //Armor
@@ -156,7 +156,7 @@ public class Registration {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "mithril_block"), MITHRIL_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "bronze_block"), BRONZE_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "silver_block"), SILVER_BLOCK);
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "malachite_block"), MALACHITE_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "prismarine_block"), PRISMARINE_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "dwarven_blast_furnace"), DWARVEN_BLAST_FURNACE);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_ore"), new BlockItem(MITHRIL_ORE, new FabricItemSettings().group(Fantasycraft)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bronze_ore"), new BlockItem(BRONZE_ORE, new FabricItemSettings().group(Fantasycraft)));
@@ -164,14 +164,14 @@ public class Registration {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_block"), new BlockItem(MITHRIL_BLOCK, new FabricItemSettings().group(Fantasycraft)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bronze_block"), new BlockItem(BRONZE_BLOCK, new FabricItemSettings().group(Fantasycraft)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_block"), new BlockItem(SILVER_BLOCK, new FabricItemSettings().group(Fantasycraft)));
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "malachite_block"), new BlockItem(MALACHITE_BLOCK, new FabricItemSettings().group(Fantasycraft)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "prismarine_block"), new BlockItem(PRISMARINE_BLOCK, new FabricItemSettings().group(Fantasycraft)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_blast_furnace"), new BlockItem(DWARVEN_BLAST_FURNACE, new FabricItemSettings().group(Fantasycraft)));
 
         //Items Registration
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_ingot"), MITHRIL_INGOT);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bronze_ingot"), BRONZE_INGOT);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_ingot"), SILVER_INGOT);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "malachite_ingot"), MALACHITE_INGOT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "prismarine_ingot"), PRISMARINE_INGOT);
 
         //Tools Registration
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_pickaxe"), DWARVEN_PICKAXE);

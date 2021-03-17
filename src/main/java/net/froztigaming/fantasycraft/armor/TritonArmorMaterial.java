@@ -33,7 +33,7 @@ public class TritonArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Registration.MALACHITE_INGOT);
+        return Ingredient.ofItems(Registration.PRISMARINE_INGOT);
     }
 
     @Override

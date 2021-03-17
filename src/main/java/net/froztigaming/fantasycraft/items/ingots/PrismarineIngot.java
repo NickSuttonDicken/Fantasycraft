@@ -2,8 +2,8 @@ package net.froztigaming.fantasycraft.items.ingots;
 
 import net.minecraft.item.Item;
 
-public class MalachiteIngot extends Item {
-    public MalachiteIngot(Settings settings) {
+public class PrismarineIngot extends Item {
+    public PrismarineIngot(Settings settings) {
         super(settings);
     }
 }

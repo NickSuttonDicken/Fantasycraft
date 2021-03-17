@@ -1,13 +1,12 @@
 package net.froztigaming.fantasycraft.tools.malachite;
 
 import net.froztigaming.fantasycraft.register.Registration;
-import net.froztigaming.fantasycraft.tools.bronze.DwarvenBronzeMaterial;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class TritonMalachiteMaterial implements ToolMaterial {
+public class TritonPrismarineMaterial implements ToolMaterial {
 
-    public static final TritonMalachiteMaterial INSTANCE = new TritonMalachiteMaterial();
+    public static final TritonPrismarineMaterial INSTANCE = new TritonPrismarineMaterial();
 
     @Override
     public int getDurability() {

@@ -2,9 +2,9 @@ package net.froztigaming.fantasycraft.blocks.materialblocks;
 
 import net.minecraft.block.Block;
 
-public class MalachiteBlock extends Block {
+public class PrismarineBlock extends Block {
 
-    public MalachiteBlock(Settings settings) {
+    public PrismarineBlock(Settings settings) {
         super(settings);
     }
 }
