@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:flint"
+    },
+    "X": {
+      "item": "fantasycraft:silver_ingot"
+    }
+  },
+  "result": {
+    "item": "fantasycraft:silver_arrow_head"
+  }
+}

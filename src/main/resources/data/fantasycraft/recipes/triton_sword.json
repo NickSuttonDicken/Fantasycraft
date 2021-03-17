@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "fantasycraft:stone_rod"
+    },
+    "X": {
+      "item": "fantasycraft:prismarine_ingot"
+    }
+  },
+  "result": {
+    "item": "fantasycraft:triton_sword"
+  }
+}

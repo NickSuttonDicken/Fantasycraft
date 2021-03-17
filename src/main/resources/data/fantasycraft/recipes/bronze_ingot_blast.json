@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "fantasycraft:bronze_ore"
+  },
+  "result": "fantasycraft:bronze_ingot",
+  "experience": 3
+}

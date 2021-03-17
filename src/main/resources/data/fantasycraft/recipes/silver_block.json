@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "fantasycraft:mithril_ingot"
+      "item": "fantasycraft:silver_ingot"
     }
   },
   "result": {
-    "item": "fantasycraft:mithril_block"
+    "item": "fantasycraft:silver_block"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "fantasycraft:silver_ore"
+  },
+  "result": "fantasycraft:silver_ingot",
+  "experience": 3
+}

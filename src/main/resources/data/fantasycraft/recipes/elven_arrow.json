@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#",
+    "Y"
+  ],
+  "key": {
+    "#": {
+      "item": "fantasycraft:stone_rod"
+    },
+    "X": {
+      "item": "fantasycraft:silver_arrow_head"
+    },
+    "Y": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+    "item": "fantasycraft:elven_arrow",
+    "count": 4
+  }
+}

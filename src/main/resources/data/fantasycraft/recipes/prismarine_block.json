@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "fantasycraft:mithril_ingot"
+      "item": "fantasycraft:prismarine_ingot"
     }
   },
   "result": {
-    "item": "fantasycraft:mithril_block"
+    "item": "fantasycraft:prismarine_block"
   }
 }

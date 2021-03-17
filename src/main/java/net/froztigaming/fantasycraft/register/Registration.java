@@ -18,6 +18,8 @@ import net.froztigaming.fantasycraft.blocks.ores.MithrilOre;
 import net.froztigaming.fantasycraft.blocks.ores.SilverOre;
 import net.froztigaming.fantasycraft.entity.DwarvenBlastFurnaceEntity;
 import net.froztigaming.fantasycraft.entity.ElvenArrowEntity;
+import net.froztigaming.fantasycraft.items.SilverArrowHead;
+import net.froztigaming.fantasycraft.items.StoneRod;
 import net.froztigaming.fantasycraft.tools.bronze.*;
 import net.froztigaming.fantasycraft.tools.malachite.*;
 import net.froztigaming.fantasycraft.tools.silver.*;
@@ -43,6 +45,7 @@ import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import org.lwjgl.system.CallbackI;
 
 public class Registration {
 
@@ -67,6 +70,8 @@ public class Registration {
     public static final SilverIngot SILVER_INGOT = new SilverIngot(new Item.Settings().group(Fantasycraft));
     public static final BronzeIngot BRONZE_INGOT = new BronzeIngot(new Item.Settings().group(Fantasycraft));
     public static final PrismarineIngot PRISMARINE_INGOT = new PrismarineIngot(new Item.Settings().group(Fantasycraft));
+    public static final StoneRod STONE_ROD = new StoneRod(new Item.Settings().group(Fantasycraft));
+    public static final SilverArrowHead SILVER_ARROW_HEAD = new SilverArrowHead(new Item.Settings().group(Fantasycraft));
 
 
     //Blocks
@@ -172,6 +177,9 @@ public class Registration {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bronze_ingot"), BRONZE_INGOT);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_ingot"), SILVER_INGOT);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "prismarine_ingot"), PRISMARINE_INGOT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "stone_rod"), STONE_ROD);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_arrow_head"), SILVER_ARROW_HEAD);
+
 
         //Tools Registration
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_pickaxe"), DWARVEN_PICKAXE);

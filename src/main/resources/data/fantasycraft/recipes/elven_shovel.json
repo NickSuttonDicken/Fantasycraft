@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "fantasycraft:stone_rod"
+    },
+    "X": {
+      "item": "fantasycraft:silver_ingot"
+    }
+  },
+  "result": {
+    "item": "fantasycraft:elven_shovel"
+  }
+}

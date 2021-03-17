@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "fantasycraft:mithril_pickaxe"
+    "fantasycraft:mithril_pickaxe",
+    "fantasycraft:dwarven_pickaxe",
+    "fantasycraft:elven_pickaxe",
+    "fantasycraft:triton_pickaxe"
   ]
 }
