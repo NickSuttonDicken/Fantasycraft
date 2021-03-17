@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 
 public class DwarvenArmor extends ArmorItem {
 
+    int i;
     public DwarvenArmor(ArmorMaterial material, EquipmentSlot slot, Settings settings)
     {
         super(material, slot, settings);
@@ -39,6 +40,13 @@ public class DwarvenArmor extends ArmorItem {
                 ArmorEffects.giveHasteEffect(world, player);
                 ArmorEffects.giveFireResistanceEffect(world, player);
                 ArmorEffects.giveNightVisionEffect(world, player);
+                i = 0;
+            }
+            else {
+                for (i = 0; i < 1; i++)
+                {
+                    ArmorEffects.clearEffects(world, player);
+                }
             }
         }
     }

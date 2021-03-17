@@ -12,6 +12,8 @@ import net.minecraft.world.World;
 
 public class ElvenArmor extends ArmorItem {
 
+    int i;
+
     public ElvenArmor(ArmorMaterial material, EquipmentSlot slot, Settings settings)
     {
         super(material, slot, settings);
@@ -39,6 +41,13 @@ public class ElvenArmor extends ArmorItem {
                 ArmorEffects.giveSpeedEffect(world, player);
                 ArmorEffects.giveJumpBoostEffect(world, player);
                 ArmorEffects.giveNightVisionEffect(world, player);
+                i = 0;
+            }
+            else {
+                for (i = 0; i < 1; i++)
+                {
+                    ArmorEffects.clearEffects(world, player);
+                }
             }
         }
     }

@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 
 public class MithrilArmor extends ArmorItem {
 
+    int i;
     public MithrilArmor(ArmorMaterial material, EquipmentSlot slot, Settings settings)
     {
         super(material, slot, settings);
@@ -37,6 +38,13 @@ public class MithrilArmor extends ArmorItem {
                     feet.getItem() == Registration.MITHRIL_BOOTS))
             {
                 ArmorEffects.giveRegenEffect(world, player);
+                i = 0;
+            }
+            else {
+                for (i = 0; i < 1; i++)
+                {
+                    ArmorEffects.clearEffects(world, player);
+                }
             }
         }
     }

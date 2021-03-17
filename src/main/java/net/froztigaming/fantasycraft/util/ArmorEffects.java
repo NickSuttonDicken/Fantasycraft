@@ -13,7 +13,7 @@ public class ArmorEffects {
     {
         if(player.isAlive())
         {
-            StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 8,0, false, false);
+            StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 99999999,0, false, false);
             {
                 player.addStatusEffect(slowness);
             }
@@ -26,7 +26,7 @@ public class ArmorEffects {
     {
         if (player.isWet())
         {
-            StatusEffectInstance dolphinGrace = new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 8, 0, false, false);
+            StatusEffectInstance dolphinGrace = new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 99999999, 0, false, false);
             {
                 player.addStatusEffect(dolphinGrace);
             }
@@ -37,7 +37,7 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance fireResistance = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 8, 0, false, false);
+            StatusEffectInstance fireResistance = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 99999999, 0, false, false);
             {
                 player.addStatusEffect(fireResistance);
             }
@@ -48,7 +48,7 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance haste = new StatusEffectInstance(StatusEffects.HASTE, 8, 0, false, false);
+            StatusEffectInstance haste = new StatusEffectInstance(StatusEffects.HASTE, 99999999, 0, false, false);
             {
                 player.addStatusEffect(haste);
             }
@@ -59,7 +59,7 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance regen = new StatusEffectInstance(StatusEffects.REGENERATION, 8, 0, false, false);
+            StatusEffectInstance regen = new StatusEffectInstance(StatusEffects.REGENERATION, 99999999, 0, false, false);
             {
                 player.addStatusEffect(regen);
             }
@@ -70,7 +70,7 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance nightVision = new StatusEffectInstance(StatusEffects.NIGHT_VISION, 8, 0, false, false);
+            StatusEffectInstance nightVision = new StatusEffectInstance(StatusEffects.NIGHT_VISION, 99999999, 0, false, false);
             {
                 player.addStatusEffect(nightVision);
             }
@@ -81,7 +81,7 @@ public class ArmorEffects {
     {
         if (player.isWet())
         {
-            StatusEffectInstance conduitPower = new StatusEffectInstance(StatusEffects.CONDUIT_POWER, 8, 0, false, false);
+            StatusEffectInstance conduitPower = new StatusEffectInstance(StatusEffects.CONDUIT_POWER, 99999999, 0, false, false);
             {
                 player.addStatusEffect(conduitPower);
             }
@@ -92,7 +92,7 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance jumpBoost = new StatusEffectInstance(StatusEffects.JUMP_BOOST, 8, 0, false, false);
+            StatusEffectInstance jumpBoost = new StatusEffectInstance(StatusEffects.JUMP_BOOST, 99999999, 0, false, false);
             {
                 player.addStatusEffect(jumpBoost);
             }
@@ -103,10 +103,18 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, 8, 0, false, false);
+            StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, 99999999, 0, false, false);
             {
                 player.addStatusEffect(speed);
             }
+        }
+    }
+
+    public static void clearEffects(World world, PlayerEntity player)
+    {
+        if (player.isAlive())
+        {
+            player.clearStatusEffects();
         }
     }
 }

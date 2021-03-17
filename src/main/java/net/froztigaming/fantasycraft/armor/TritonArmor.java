@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 
 public class TritonArmor extends ArmorItem {
 
+    int i;
     public TritonArmor(ArmorMaterial material, EquipmentSlot slot, Settings settings)
     {
         super(material, slot, settings);
@@ -38,6 +39,13 @@ public class TritonArmor extends ArmorItem {
             {
                 ArmorEffects.giveConduitPowerEffect(world, player);
                 ArmorEffects.giveDolphinGraceEffect(world, player);
+                i = 0;
+            }
+            else {
+                for (i = 0; i < 1; i++)
+                {
+                    ArmorEffects.clearEffects(world, player);
+                }
             }
         }
     }
