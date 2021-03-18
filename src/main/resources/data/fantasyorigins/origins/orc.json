@@ -8,9 +8,9 @@
 		"fantasyorigins:orcish_stomach_modifiers",
 		"origins:carnivore"
 	],
-	"icon": "minecraft:netherite_axe",
+	"icon": "fantasycraft:mithril_axe",
 	"order": 8,
 	"impact": 2,
 	"name": "Orc",
-	"description": "A simple Orc Origin datapack"
+	"description": "A Fantasy Orc Origin"
 }

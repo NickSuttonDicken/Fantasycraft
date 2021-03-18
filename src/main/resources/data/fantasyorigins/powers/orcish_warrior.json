@@ -67,7 +67,48 @@
   					"item": "minecraft:netherite_axe"
   				}
   			}
-  		}
+  		},
+		{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "fantasycraft:dwarven_axe"
+				}
+			}
+		},
+		{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "fantasycraft:elven_axe"
+				}
+			}
+		},
+		{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "fantasycraft:triton_axe"
+				}
+			}
+		},
+		{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "fantasycraft:mithril_axe"
+				}
+			}
+		}
+
   	]
   },
   "name": "Orcish Warrior",

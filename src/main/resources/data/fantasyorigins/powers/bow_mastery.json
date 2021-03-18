@@ -11,10 +11,10 @@
 	"item_condition": {
 	  "type": "origins:ingredient",
 	  "ingredient": {
-		"item": "minecraft:bow"
+		"item": "fantasycraft:elven_bow"
 	  }
 	}
   },
   "name": "Bow Mastery",
-  "description": "Elves are masters of archery allowing them to use a bow as a melee weapon (increasing with each level of Power on the bow), and summon 32 arrows every 5 minutes"
+  "description": "Elves are masters of archery allowing them to use an Elven bow as a melee weapon, and summon 32 arrows every 5 minutes"
 }

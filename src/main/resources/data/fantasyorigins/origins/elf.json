@@ -7,12 +7,11 @@
 		"fantasyorigins:bow_mastery_arrows",
 		"fantasyorigins:underground_fatigue",
 		"origins:sprint_jump",
-		"origins:light_armor",
 		"origins:carnivore"
 	],
-	"icon": "minecraft:bow",
+	"icon": "fantasycraft:elven_bow",
 	"order": 9,
 	"impact": 2,
 	"name": "Elf",
-	"description": "A simple Elf Origin datapack"
+	"description": "A Fantasycraft Elf Origin"
 }

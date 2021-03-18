@@ -5,9 +5,9 @@
 		"fantasyorigins:hobbit_jump_modifiers",
 		"fantasyorigins:hobbit_sneak"
 	],
-	"icon": "minecraft:netherite_hoe",
+	"icon": "fantasycraft:mithril_hoe",
 	"order": 7,
 	"impact": 2,
 	"name": "Hobbit",
-	"description": "A simple Hobbit Origin datapack"
+	"description": "A Fantasycraft Hobbit Origin"
 }

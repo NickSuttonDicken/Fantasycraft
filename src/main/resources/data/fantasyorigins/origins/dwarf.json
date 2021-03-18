@@ -9,9 +9,9 @@
 		"fantasyorigins:dwarven_size_modifiers",
 		"fantasyorigins:dwarven_skin"
 	],
-	"icon": "minecraft:netherite_pickaxe",
+	"icon": "fantasycraft:dwarven_pickaxe",
 	"order": 10,
 	"impact": 2,
 	"name": "Dwarf",
-	"description": "A simple Dwarf Origin datapack"
+	"description": "A Fantasycraft Dwarf Origin"
 }

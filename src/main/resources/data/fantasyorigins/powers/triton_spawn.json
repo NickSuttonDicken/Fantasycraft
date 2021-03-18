@@ -1,5 +1,7 @@
 {
   "type": "origins:modify_player_spawn",
   "dimension": "minecraft:overworld",
-  "structure": "minecraft:ocean_ruin"
+  "structure": "minecraft:ocean_ruin",
+  "name" : "Ocean Spawn",
+  "description" : "Triton's spawn at Ocean Ruins"
 }

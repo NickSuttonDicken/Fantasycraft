@@ -1,5 +1,7 @@
 {
 	"type": "origins:stacking_status_effect",
+	"name" : "Ocean Power",
+	"description" : "Triton's are more powerful while in water",
 	"min_stacks": 0,
 	"max_stacks": 10,
 	"duration_per_stack": 20,
