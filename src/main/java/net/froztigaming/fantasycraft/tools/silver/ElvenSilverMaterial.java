@@ -4,9 +4,9 @@ import net.froztigaming.fantasycraft.register.Registration;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class ElvenMaterial implements ToolMaterial {
+public class ElvenSilverMaterial implements ToolMaterial {
 
-    public static final ElvenMaterial INSTANCE = new ElvenMaterial();
+    public static final ElvenSilverMaterial INSTANCE = new ElvenSilverMaterial();
 
     @Override
     public int getDurability() {
@@ -25,6 +25,6 @@ public class ElvenMaterial implements ToolMaterial {
         return 30;
     }
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Registration.MITHRIL_INGOT);
+        return Ingredient.ofItems(Registration.SILVER_INGOT);
     }
 }

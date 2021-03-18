@@ -48,7 +48,6 @@ import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import org.lwjgl.system.CallbackI;
 
 public class Registration {
 
@@ -98,11 +97,11 @@ public class Registration {
     public static ToolItem DWARVEN_AXE = new DwarvenAxe(DwarvenBronzeMaterial.INSTANCE, 9, -3.0f, new Item.Settings().group(Fantasycraft));
     public static ToolItem DWARVEN_HOE = new DwarvenHoe(DwarvenBronzeMaterial.INSTANCE, 0, 0f, new Item.Settings().group(Fantasycraft));
     public static ToolItem DWARVEN_SWORD = new DwarvenSword(DwarvenBronzeMaterial.INSTANCE, 7, -2.4f, new Item.Settings().group(Fantasycraft));
-    public static ToolItem ELVEN_SHOVEL = new ElvenShovel(ElvenMaterial.INSTANCE, 5.5f, -3.0f, new Item.Settings().group(Fantasycraft));
-    public static ToolItem ELVEN_PICKAXE = new ElvenPickaxe(ElvenMaterial.INSTANCE, 6, -2.8f, new Item.Settings().group(Fantasycraft));
-    public static ToolItem ELVEN_AXE = new ElvenAxe(ElvenMaterial.INSTANCE, 9, -3.0f, new Item.Settings().group(Fantasycraft));
-    public static ToolItem ELVEN_HOE = new ElvenHoe(ElvenMaterial.INSTANCE, 0, 0f, new Item.Settings().group(Fantasycraft));
-    public static ToolItem ELVEN_SWORD = new ElvenSword(ElvenMaterial.INSTANCE, 7, -2.4f, new Item.Settings().group(Fantasycraft));
+    public static ToolItem ELVEN_SHOVEL = new ElvenShovel(ElvenSilverMaterial.INSTANCE, 5.5f, -3.0f, new Item.Settings().group(Fantasycraft));
+    public static ToolItem ELVEN_PICKAXE = new ElvenPickaxe(ElvenSilverMaterial.INSTANCE, 6, -2.8f, new Item.Settings().group(Fantasycraft));
+    public static ToolItem ELVEN_AXE = new ElvenAxe(ElvenSilverMaterial.INSTANCE, 9, -3.0f, new Item.Settings().group(Fantasycraft));
+    public static ToolItem ELVEN_HOE = new ElvenHoe(ElvenSilverMaterial.INSTANCE, 0, 0f, new Item.Settings().group(Fantasycraft));
+    public static ToolItem ELVEN_SWORD = new ElvenSword(ElvenSilverMaterial.INSTANCE, 7, -2.4f, new Item.Settings().group(Fantasycraft));
     public static RangedWeaponItem ELVEN_BOW = new ElvenBow(new Item.Settings().group(Fantasycraft).maxDamage(770));
     public static final ElvenArrow ELVEN_ARROW = new ElvenArrow(new Item.Settings().group(Fantasycraft));
     public static ToolItem TRITON_SHOVEL = new TritonShovel(TritonPrismarineMaterial.INSTANCE, 5.5f, -3.0f, new Item.Settings().group(Fantasycraft));

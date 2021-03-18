@@ -54,6 +54,16 @@ public class ArmorEffects {
             }
         }
     }
+    public static void giveUnderwaterHasteEffect(World world, PlayerEntity player)
+    {
+        if (player.isSubmergedInWater())
+        {
+            StatusEffectInstance underWaterHaste = new StatusEffectInstance(StatusEffects.HASTE, 99999999, 1, false, false);
+            {
+                player.addStatusEffect(underWaterHaste);
+            }
+        }
+    }
 
     public static void giveRegenEffect(World world, PlayerEntity player)
     {

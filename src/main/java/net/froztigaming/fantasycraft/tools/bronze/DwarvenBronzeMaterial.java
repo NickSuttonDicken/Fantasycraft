@@ -25,6 +25,6 @@ public class DwarvenBronzeMaterial implements ToolMaterial {
         return 10;
     }
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Registration.MITHRIL_INGOT);
+        return Ingredient.ofItems(Registration.BRONZE_INGOT);
     }
 }
