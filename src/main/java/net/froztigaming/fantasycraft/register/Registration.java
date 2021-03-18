@@ -28,6 +28,7 @@ import net.froztigaming.fantasycraft.items.ingots.PrismarineIngot;
 import net.froztigaming.fantasycraft.items.ingots.MithrilIngot;
 import net.froztigaming.fantasycraft.items.ingots.SilverIngot;
 import net.froztigaming.fantasycraft.tools.mithril.*;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.EntityDimensions;
@@ -35,10 +36,12 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
+import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
@@ -138,18 +141,43 @@ public class Registration {
     );
 
     //Ore Generation
-    private static ConfiguredFeature<?,?> ORE_MITHRIL_OVERWORLD = Feature.ORE
+    private static ConfiguredFeature<?,?> ORE_MITHRIL_END = Feature.NO_SURFACE_ORE
             .configure(new OreFeatureConfig(
-                    OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+                    new BlockMatchRuleTest(Blocks.END_STONE),
                     Registration.MITHRIL_ORE.getDefaultState(),
-                    4))
+                    2))
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
                     0,
                     0,
-                    15
+                    64
             )))
             .spreadHorizontally()
-            .repeat(2);
+            .repeat(11);
+    private static ConfiguredFeature<?, ?> ORE_BRONZE_OVERWORLD = Feature.ORE
+            .configure(new OreFeatureConfig(
+                    OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+                    Registration.BRONZE_ORE.getDefaultState(),
+                    13))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
+                    0,
+                    0,
+                    256
+            )))
+            .spreadHorizontally()
+            .repeat(18);
+    private static ConfiguredFeature<?, ?> ORE_SILVER_OVERWORLD = Feature.ORE
+            .configure(new OreFeatureConfig(
+                    OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+                    Registration.SILVER_ORE.getDefaultState(),
+                    13))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
+                    0,
+                    0,
+                    32
+            )))
+            .spreadHorizontally()
+            .repeat(4);
+
 
 
     public static void register()
@@ -227,10 +255,19 @@ public class Registration {
         Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MOD_ID, "dwarven_blast_furnace"), DWARVEN_BLAST_FURNACE_ENTITY);
 
         //World Generation Registration
-        RegistryKey<ConfiguredFeature<?,?>> oreMithrilOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+        RegistryKey<ConfiguredFeature<?,?>> oreMithrilEnd = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+                new Identifier(MOD_ID, "ore_mithril_end"));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreMithrilEnd.getValue(), ORE_MITHRIL_END);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(), GenerationStep.Feature.UNDERGROUND_ORES, oreMithrilEnd);
+        RegistryKey<ConfiguredFeature<?, ?>> oreBronzeOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+                new Identifier(MOD_ID, "ore_bronze_overworld"));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreBronzeOverworld.getValue(), ORE_BRONZE_OVERWORLD);
+        BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.EXTREME_HILLS), GenerationStep.Feature.UNDERGROUND_ORES, oreBronzeOverworld);
+        RegistryKey<ConfiguredFeature<?,?>> oreSilverOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
                 new Identifier(MOD_ID, "ore_mithril_overworld"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreMithrilOverworld.getValue(), ORE_MITHRIL_OVERWORLD);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreMithrilOverworld);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreSilverOverworld.getValue(), ORE_SILVER_OVERWORLD);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreSilverOverworld);
+
     }
 
     public static void start(){
