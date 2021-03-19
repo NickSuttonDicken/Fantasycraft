@@ -269,9 +269,5 @@ public class Registration {
 
     }
 
-    public static void start(){
-        register();
-    }
-
 
 }
