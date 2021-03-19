@@ -64,6 +64,7 @@ public class FantasycraftClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityRendererRegistry.INSTANCE.register(Registration.ELVEN_ARROW_ENTITY_TYPE, (dispatcher, context) ->
             new ElvenArrowRenderer(dispatcher));
+        registerBow();
         receiveEntityPacket();
     }
 
