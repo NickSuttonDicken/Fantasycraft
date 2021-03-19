@@ -7,6 +7,5 @@ public class FantasycraftMain implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		Registration.start();
-		//FantasycraftClient.registerBow();
 	}
 }
