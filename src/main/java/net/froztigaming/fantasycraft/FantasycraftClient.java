@@ -23,7 +23,6 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.UUID;
 
-@Environment(EnvType.CLIENT)
 public class FantasycraftClient implements ClientModInitializer {
 
     public static final Identifier PacketID = new Identifier(Registration.MOD_ID, "spawn_packet");
