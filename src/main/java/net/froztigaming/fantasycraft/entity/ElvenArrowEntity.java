@@ -5,6 +5,7 @@ import com.google.common.collect.Sets;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.froztigaming.fantasycraft.FantasycraftClient;
+import net.froztigaming.fantasycraft.FantasycraftMain;
 import net.froztigaming.fantasycraft.register.Registration;
 import net.froztigaming.fantasycraft.render.EntitySpawnPacket;
 import net.minecraft.entity.EntityType;
@@ -256,9 +257,10 @@ public class ElvenArrowEntity extends PersistentProjectileEntity {
     }
 
 
+
     @Override
     public Packet createSpawnPacket() {
-        return EntitySpawnPacket.create(this, FantasycraftClient.PacketID);
+        return EntitySpawnPacket.create(this, FantasycraftMain.PacketID);
     }
 
     @Override

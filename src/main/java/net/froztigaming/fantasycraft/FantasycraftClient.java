@@ -23,9 +23,18 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.UUID;
 
+@Environment(EnvType.CLIENT)
 public class FantasycraftClient implements ClientModInitializer {
 
-    public static final Identifier PacketID = new Identifier(Registration.MOD_ID, "spawn_packet");
+
+
+    @Override
+    public void onInitializeClient() {
+        EntityRendererRegistry.INSTANCE.register(Registration.ELVEN_ARROW_ENTITY_TYPE, (dispatcher, context) ->
+                new ElvenArrowRenderer(dispatcher));
+        registerBow();
+        receiveEntityPacket();
+    }
 
     public static void registerBow() {
         Identifier pull = new Identifier("pull");
@@ -35,7 +44,7 @@ public class FantasycraftClient implements ClientModInitializer {
     }
 
     public void receiveEntityPacket() {
-        ClientSidePacketRegistry.INSTANCE.register(PacketID, (ctx, byteBuf) -> {
+        ClientSidePacketRegistry.INSTANCE.register(FantasycraftMain.PacketID, (ctx, byteBuf) -> {
             EntityType<?> et = Registry.ENTITY_TYPE.get(byteBuf.readVarInt());
             UUID uuid = byteBuf.readUuid();
             int entityId = byteBuf.readVarInt();
@@ -59,13 +68,7 @@ public class FantasycraftClient implements ClientModInitializer {
         });
     }
 
-    @Override
-    public void onInitializeClient() {
-        EntityRendererRegistry.INSTANCE.register(Registration.ELVEN_ARROW_ENTITY_TYPE, (dispatcher, context) ->
-            new ElvenArrowRenderer(dispatcher));
-        registerBow();
-        receiveEntityPacket();
-    }
+
 
 
 }
