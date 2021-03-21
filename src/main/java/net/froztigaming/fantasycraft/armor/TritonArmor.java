@@ -1,6 +1,6 @@
 package net.froztigaming.fantasycraft.armor;
 
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -32,10 +32,10 @@ public class TritonArmor extends ArmorItem {
             ItemStack legs = player.getEquippedStack(EquipmentSlot.LEGS);
             ItemStack feet = player.getEquippedStack(EquipmentSlot.FEET);
 
-            if((head.getItem() == Registration.TRITON_HELMET &&
-                    chest.getItem() == Registration.TRITON_CHESTPLATE &&
-                    legs.getItem() == Registration.TRITON_LEGGINGS &&
-                    feet.getItem() == Registration.TRITON_BOOTS))
+            if((head.getItem() == ItemInit.TRITON_HELMET &&
+                    chest.getItem() == ItemInit.TRITON_CHESTPLATE &&
+                    legs.getItem() == ItemInit.TRITON_LEGGINGS &&
+                    feet.getItem() == ItemInit.TRITON_BOOTS))
             {
                 ArmorEffects.giveConduitPowerEffect(world, player);
                 ArmorEffects.giveDolphinGraceEffect(world, player);

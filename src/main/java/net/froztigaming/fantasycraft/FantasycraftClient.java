@@ -6,16 +6,13 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.render.ElvenArrowRenderer;
 import net.froztigaming.fantasycraft.render.EntitySpawnPacket;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
-import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
-import net.minecraft.client.render.entity.ProjectileEntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -30,7 +27,7 @@ public class FantasycraftClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.INSTANCE.register(Registration.ELVEN_ARROW_ENTITY_TYPE, (dispatcher, context) ->
+        EntityRendererRegistry.INSTANCE.register(ItemInit.ELVEN_ARROW_ENTITY_TYPE, (dispatcher, context) ->
                 new ElvenArrowRenderer(dispatcher));
         registerBow();
         receiveEntityPacket();
@@ -38,9 +35,9 @@ public class FantasycraftClient implements ClientModInitializer {
 
     public static void registerBow() {
         Identifier pull = new Identifier("pull");
-        FabricModelPredicateProviderRegistry.register(Registration.ELVEN_BOW, pull, ModelPredicateProviderRegistry.get(Items.BOW, pull));
+        FabricModelPredicateProviderRegistry.register(ItemInit.ELVEN_BOW, pull, ModelPredicateProviderRegistry.get(Items.BOW, pull));
         Identifier pulling = new Identifier("pulling");
-        FabricModelPredicateProviderRegistry.register(Registration.ELVEN_BOW, pulling, ModelPredicateProviderRegistry.get(Items.BOW, pulling));
+        FabricModelPredicateProviderRegistry.register(ItemInit.ELVEN_BOW, pulling, ModelPredicateProviderRegistry.get(Items.BOW, pulling));
     }
 
     public void receiveEntityPacket() {

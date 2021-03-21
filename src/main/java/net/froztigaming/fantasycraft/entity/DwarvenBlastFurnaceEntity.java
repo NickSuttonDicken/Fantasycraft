@@ -1,6 +1,6 @@
 package net.froztigaming.fantasycraft.entity;
 
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.BlockInit;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
@@ -13,7 +13,7 @@ import net.minecraft.text.TranslatableText;
 
 public class DwarvenBlastFurnaceEntity extends AbstractFurnaceBlockEntity {
     public DwarvenBlastFurnaceEntity(){
-        super(Registration.DWARVEN_BLAST_FURNACE_ENTITY, RecipeType.BLASTING);
+        super(BlockInit.DWARVEN_BLAST_FURNACE_ENTITY, RecipeType.BLASTING);
     }
 
     @Override

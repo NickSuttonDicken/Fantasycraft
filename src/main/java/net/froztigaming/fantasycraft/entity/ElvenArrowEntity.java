@@ -4,9 +4,8 @@ package net.froztigaming.fantasycraft.entity;
 import com.google.common.collect.Sets;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.froztigaming.fantasycraft.FantasycraftClient;
 import net.froztigaming.fantasycraft.FantasycraftMain;
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.render.EntitySpawnPacket;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -15,7 +14,6 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
@@ -47,13 +45,13 @@ public class ElvenArrowEntity extends PersistentProjectileEntity {
     }
 
     public ElvenArrowEntity(World world, double x, double y, double z) {
-        super(Registration.ELVEN_ARROW_ENTITY_TYPE, x, y, z, world);
+        super(ItemInit.ELVEN_ARROW_ENTITY_TYPE, x, y, z, world);
         this.potion = Potions.EMPTY;
         this.effects = Sets.newHashSet();
     }
 
     public ElvenArrowEntity(World world, LivingEntity owner) {
-        super(Registration.ELVEN_ARROW_ENTITY_TYPE, owner, world);
+        super(ItemInit.ELVEN_ARROW_ENTITY_TYPE, owner, world);
         this.potion = Potions.EMPTY;
         this.effects = Sets.newHashSet();
     }
@@ -220,7 +218,7 @@ public class ElvenArrowEntity extends PersistentProjectileEntity {
 
     protected ItemStack asItemStack() {
         if (this.effects.isEmpty() && this.potion == Potions.EMPTY) {
-            return new ItemStack(Registration.ELVEN_ARROW);
+            return new ItemStack(ItemInit.ELVEN_ARROW);
         } else {
             ItemStack itemStack = new ItemStack(Items.TIPPED_ARROW);
             PotionUtil.setPotion(itemStack, this.potion);

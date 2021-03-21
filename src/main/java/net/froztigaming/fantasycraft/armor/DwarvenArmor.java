@@ -1,6 +1,6 @@
 package net.froztigaming.fantasycraft.armor;
 
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -32,10 +32,10 @@ public class DwarvenArmor extends ArmorItem {
             ItemStack legs = player.getEquippedStack(EquipmentSlot.LEGS);
             ItemStack feet = player.getEquippedStack(EquipmentSlot.FEET);
 
-            if((head.getItem() == Registration.DWARVEN_HELMET &&
-                    chest.getItem() == Registration.DWARVEN_CHESTPLATE &&
-                    legs.getItem() == Registration.DWARVEN_LEGGINGS &&
-                    feet.getItem() == Registration.DWARVEN_BOOTS))
+            if((head.getItem() == ItemInit.DWARVEN_HELMET &&
+                    chest.getItem() == ItemInit.DWARVEN_CHESTPLATE &&
+                    legs.getItem() == ItemInit.DWARVEN_LEGGINGS &&
+                    feet.getItem() == ItemInit.DWARVEN_BOOTS))
             {
                 ArmorEffects.giveHasteEffect(world, player);
                 ArmorEffects.giveFireResistanceEffect(world, player);

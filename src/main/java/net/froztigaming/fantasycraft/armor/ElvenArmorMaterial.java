@@ -1,6 +1,6 @@
 package net.froztigaming.fantasycraft.armor;
 
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -34,7 +34,7 @@ public class ElvenArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Registration.SILVER_INGOT);
+        return Ingredient.ofItems(ItemInit.SILVER_INGOT);
     }
 
     @Override

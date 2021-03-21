@@ -1,10 +1,8 @@
 package net.froztigaming.fantasycraft.tools.malachite;
 
-import net.froztigaming.fantasycraft.register.Registration;
-import net.minecraft.entity.player.PlayerEntity;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.world.World;
 
 public class TritonPrismarineMaterial implements ToolMaterial {
 
@@ -27,6 +25,6 @@ public class TritonPrismarineMaterial implements ToolMaterial {
         return 15;
     }
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Registration.PRISMARINE_INGOT);
+        return Ingredient.ofItems(ItemInit.PRISMARINE_INGOT);
     }
 }

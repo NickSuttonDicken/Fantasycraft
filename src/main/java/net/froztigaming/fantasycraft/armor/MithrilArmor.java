@@ -1,6 +1,6 @@
 package net.froztigaming.fantasycraft.armor;
 
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -32,10 +32,10 @@ public class MithrilArmor extends ArmorItem {
             ItemStack legs = player.getEquippedStack(EquipmentSlot.LEGS);
             ItemStack feet = player.getEquippedStack(EquipmentSlot.FEET);
 
-            if((head.getItem() == Registration.MITHRIL_HELMET &&
-                    chest.getItem() == Registration.MITHRIL_CHESTPLATE &&
-                    legs.getItem() == Registration.MITHRIL_LEGGINGS &&
-                    feet.getItem() == Registration.MITHRIL_BOOTS))
+            if((head.getItem() == ItemInit.MITHRIL_HELMET &&
+                    chest.getItem() == ItemInit.MITHRIL_CHESTPLATE &&
+                    legs.getItem() == ItemInit.MITHRIL_LEGGINGS &&
+                    feet.getItem() == ItemInit.MITHRIL_BOOTS))
             {
                 ArmorEffects.giveRegenEffect(world, player);
                 i = 0;

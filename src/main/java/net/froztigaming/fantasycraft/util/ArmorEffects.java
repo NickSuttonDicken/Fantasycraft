@@ -26,7 +26,7 @@ public class ArmorEffects {
     {
         if (player.isWet())
         {
-            StatusEffectInstance dolphinGrace = new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 99999999, 0, false, false);
+            StatusEffectInstance dolphinGrace = new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 8, 0, false, false);
             {
                 player.addStatusEffect(dolphinGrace);
             }
@@ -58,7 +58,7 @@ public class ArmorEffects {
     {
         if (player.isSubmergedInWater())
         {
-            StatusEffectInstance underWaterHaste = new StatusEffectInstance(StatusEffects.HASTE, 99999999, 1, false, false);
+            StatusEffectInstance underWaterHaste = new StatusEffectInstance(StatusEffects.HASTE, 8, 1, false, false);
             {
                 player.addStatusEffect(underWaterHaste);
             }
@@ -91,7 +91,7 @@ public class ArmorEffects {
     {
         if (player.isWet())
         {
-            StatusEffectInstance conduitPower = new StatusEffectInstance(StatusEffects.CONDUIT_POWER, 99999999, 0, false, false);
+            StatusEffectInstance conduitPower = new StatusEffectInstance(StatusEffects.CONDUIT_POWER, 8, 0, false, false);
             {
                 player.addStatusEffect(conduitPower);
             }

@@ -1,6 +1,6 @@
 package net.froztigaming.fantasycraft.armor;
 
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -33,10 +33,10 @@ public class ElvenArmor extends ArmorItem {
             ItemStack legs = player.getEquippedStack(EquipmentSlot.LEGS);
             ItemStack feet = player.getEquippedStack(EquipmentSlot.FEET);
 
-            if((head.getItem() == Registration.ELVEN_HELMET &&
-                    chest.getItem() == Registration.ELVEN_CHESTPLATE &&
-                    legs.getItem() == Registration.ELVEN_LEGGINGS &&
-                    feet.getItem() == Registration.ELVEN_BOOTS))
+            if((head.getItem() == ItemInit.ELVEN_HELMET &&
+                    chest.getItem() == ItemInit.ELVEN_CHESTPLATE &&
+                    legs.getItem() == ItemInit.ELVEN_LEGGINGS &&
+                    feet.getItem() == ItemInit.ELVEN_BOOTS))
             {
                 ArmorEffects.giveSpeedEffect(world, player);
                 ArmorEffects.giveJumpBoostEffect(world, player);

@@ -1,6 +1,6 @@
 package net.froztigaming.fantasycraft.tools.bronze;
 
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -10,7 +10,7 @@ public class DwarvenBronzeMaterial implements ToolMaterial {
 
     @Override
     public int getDurability() {
-        return 200;
+        return 2000;
     }
     public float getMiningSpeedMultiplier() {
         return 10.0f;
@@ -25,6 +25,6 @@ public class DwarvenBronzeMaterial implements ToolMaterial {
         return 10;
     }
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Registration.BRONZE_INGOT);
+        return Ingredient.ofItems(ItemInit.BRONZE_INGOT);
     }
 }

@@ -1,6 +1,6 @@
 package net.froztigaming.fantasycraft.tools.mithril;
 
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -25,6 +25,6 @@ public class MithrilMaterial implements ToolMaterial {
         return 30;
     }
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Registration.MITHRIL_INGOT);
+        return Ingredient.ofItems(ItemInit.MITHRIL_INGOT);
     }
 }

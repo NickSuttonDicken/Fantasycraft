@@ -1,6 +1,6 @@
 package net.froztigaming.fantasycraft.tools.malachite;
 
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,7 +26,7 @@ public class TritonShovel extends ShovelItem {
 
             ItemStack mainHand = player.getMainHandStack();
 
-            if(mainHand.getItem() == Registration.TRITON_SHOVEL)
+            if(mainHand.getItem() == ItemInit.TRITON_SHOVEL)
             {
                 ArmorEffects.giveUnderwaterHasteEffect(world, player);
                 i = 0;

@@ -1,9 +1,8 @@
 package net.froztigaming.fantasycraft.tools.malachite;
 
-import net.froztigaming.fantasycraft.register.Registration;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
@@ -27,7 +26,7 @@ public class TritonPickaxe extends PickaxeItem {
 
             ItemStack mainHand = player.getMainHandStack();
 
-            if(mainHand.getItem() == Registration.TRITON_PICKAXE)
+            if(mainHand.getItem() == ItemInit.TRITON_PICKAXE)
             {
                 ArmorEffects.giveUnderwaterHasteEffect(world, player);
                 i = 0;
