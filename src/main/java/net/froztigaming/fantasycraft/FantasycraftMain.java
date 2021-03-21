@@ -28,6 +28,7 @@ public class FantasycraftMain implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		BlockInit.registerBlockEntities();
 		BlockInit.registerBlocks();
 		BlockInit.registerBlockItems();
 		ItemInit.registerItems();

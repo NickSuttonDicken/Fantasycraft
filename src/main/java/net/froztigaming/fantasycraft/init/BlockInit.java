@@ -30,7 +30,7 @@ public class BlockInit {
     static boolean mithrilEnable = FantasycraftMain.CONFIG.METALS.mithrilEnable;
 
     //Blocks
-    public static final DwarvenBlastFurnace DWARVEN_BLAST_FURNACE = new DwarvenBlastFurnace(FabricBlockSettings.of(Material.METAL));
+    public static final DwarvenBlastFurnace DWARVEN_BLAST_FURNACE = new DwarvenBlastFurnace(FabricBlockSettings.of(Material.METAL).strength(4.5f).breakByTool(FabricToolTags.PICKAXES, 1).requiresTool());
     public static final MithrilBlock MITHRIL_BLOCK = new MithrilBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).breakByTool(FabricToolTags.PICKAXES, 4).requiresTool());
     public static final BronzeBlock BRONZE_BLOCK = new BronzeBlock(FabricBlockSettings.of(Material.METAL).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
     public static final SilverBlock SILVER_BLOCK = new SilverBlock(FabricBlockSettings.of(Material.METAL).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
