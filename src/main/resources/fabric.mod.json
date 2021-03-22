@@ -10,10 +10,10 @@
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/NickSuttonDicken/Fantasycraft"
+    "sources": "https://github.com/FroztiGaming/Fantasycraft"
   },
 
-  "license": "CC0-1.0",
+  "license": "GNU-3.0",
   "icon": "assets/fantasycraft/icon.png",
 
   "environment": "*",
