@@ -1,11 +1,19 @@
 package net.froztigaming.fantasycraft.armor;
 
 import net.froztigaming.fantasycraft.init.ItemInit;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
+import net.minecraft.world.World;
+
+import java.util.List;
 
 public class DwarvenArmorMaterial implements ArmorMaterial {
 
@@ -51,4 +59,5 @@ public class DwarvenArmorMaterial implements ArmorMaterial {
     public float getKnockbackResistance() {
         return 0.4F;
     }
+
 }

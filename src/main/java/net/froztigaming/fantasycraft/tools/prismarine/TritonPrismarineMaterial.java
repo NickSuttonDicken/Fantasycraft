@@ -1,4 +1,4 @@
-package net.froztigaming.fantasycraft.tools.malachite;
+package net.froztigaming.fantasycraft.tools.prismarine;
 
 import net.froztigaming.fantasycraft.init.ItemInit;
 import net.minecraft.item.ToolMaterial;

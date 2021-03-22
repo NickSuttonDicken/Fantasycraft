@@ -2,7 +2,6 @@
 	"powers": [
 		"fantasyorigins:orcish_stature",
 		"fantasyorigins:orcish_stature_modifiers",
-		"fantasyorigins:averison_to_shirts",
 		"fantasyorigins:orcish_warrior",
 		"fantasyorigins:orcish_stomach",
 		"fantasyorigins:orcish_stomach_modifiers",
@@ -12,5 +11,5 @@
 	"order": 8,
 	"impact": 2,
 	"name": "Orc",
-	"description": "A Fantasy Orc Origin"
+	"description": "A Fantasycraft Orc Origin"
 }

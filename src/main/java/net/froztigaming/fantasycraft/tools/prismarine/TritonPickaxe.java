@@ -1,21 +1,22 @@
-package net.froztigaming.fantasycraft.tools.malachite;
+package net.froztigaming.fantasycraft.tools.prismarine;
 
 import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShovelItem;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.world.World;
 
-public class TritonShovel extends ShovelItem {
-    public TritonShovel(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+public class TritonPickaxe extends PickaxeItem {
+    public TritonPickaxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
-    int i;
+
 
     static boolean enablePerks = true;
+    static boolean effectsCleared = true;
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
@@ -26,15 +27,16 @@ public class TritonShovel extends ShovelItem {
 
             ItemStack mainHand = player.getMainHandStack();
 
-            if(mainHand.getItem() == ItemInit.TRITON_SHOVEL)
+            if(mainHand.getItem() == ItemInit.TRITON_PICKAXE)
             {
                 ArmorEffects.giveUnderwaterHasteEffect(world, player);
-                i = 0;
+                effectsCleared = false;
             }
             else {
-                for (i = 0; i < 1; i++)
+                while(effectsCleared == false)
                 {
                     ArmorEffects.clearEffects(world, player);
+                    effectsCleared = true;
                 }
             }
         }

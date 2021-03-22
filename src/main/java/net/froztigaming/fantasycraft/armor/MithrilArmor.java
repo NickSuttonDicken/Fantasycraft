@@ -2,13 +2,19 @@ package net.froztigaming.fantasycraft.armor;
 
 import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class MithrilArmor extends ArmorItem {
 
@@ -19,6 +25,7 @@ public class MithrilArmor extends ArmorItem {
     }
 
     static boolean enablePerks = true;
+    static boolean effectsCleared = true;
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
@@ -38,14 +45,22 @@ public class MithrilArmor extends ArmorItem {
                     feet.getItem() == ItemInit.MITHRIL_BOOTS))
             {
                 ArmorEffects.giveRegenEffect(world, player);
-                i = 0;
+                effectsCleared = false;
             }
             else {
-                for (i = 0; i < 1; i++)
+                while(effectsCleared == false)
                 {
                     ArmorEffects.clearEffects(world, player);
+                    effectsCleared = true;
                 }
             }
         }
+    }
+
+    @Override
+    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+
+        tooltip.add( new TranslatableText("item.fantasycraft.mithril_armor.tooltip_1").formatted(Formatting.BOLD) );
+        tooltip.add( new TranslatableText("item.fantasycraft.mithril_armor.tooltip_2").formatted(Formatting.RED) );
     }
 }
