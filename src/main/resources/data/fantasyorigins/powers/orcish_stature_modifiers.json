@@ -5,7 +5,7 @@
 	{
 	  "name": "Origin modifier",
 	  "attribute": "generic.max_health",
-	  "value": 4,
+	  "value": 6,
 	  "operation": "addition"
 	}
 ],

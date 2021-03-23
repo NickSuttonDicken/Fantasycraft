@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "fantasycraft:elven_bow",
+    "minecraft:bow",
+    "minecraft:trident"
+  ]
+}

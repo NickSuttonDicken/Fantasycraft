@@ -4,7 +4,11 @@
 		"fantasyorigins:orcish_stature_modifiers",
 		"fantasyorigins:orcish_warrior",
 		"fantasyorigins:orcish_stomach",
+		"fantasyorigins:orcish_rage",
+		"fantasyorigins:no_ranged",
 		"fantasyorigins:orcish_stomach_modifiers",
+		"origins:no_shield",
+		"origins:extra_reach",
 		"origins:carnivore"
 	],
 	"icon": "fantasycraft:mithril_axe",

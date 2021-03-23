@@ -1,0 +1,15 @@
+{
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "effect give @s minecraft:strength 30 3",
+		"permission_level": 4
+	},
+	"cooldown": 12000,
+	"hud_render": {
+		"should_render": true
+	},
+	"key": "primary",
+	"name": "Orcish Rage",
+	"description" : "Orcs can call upon their bottled up rage to increase their strength for 30 seconds"
+}

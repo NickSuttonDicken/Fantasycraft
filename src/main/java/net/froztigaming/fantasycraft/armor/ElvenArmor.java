@@ -31,8 +31,7 @@ public class ElvenArmor extends ArmorItem {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
     {
-        if(!world.isClient && entity instanceof PlayerEntity && enablePerks)
-        {
+        if(!world.isClient && entity instanceof PlayerEntity && enablePerks) {
             PlayerEntity player = (PlayerEntity) entity;
 
             ItemStack head = player.getEquippedStack(EquipmentSlot.HEAD);
@@ -40,19 +39,16 @@ public class ElvenArmor extends ArmorItem {
             ItemStack legs = player.getEquippedStack(EquipmentSlot.LEGS);
             ItemStack feet = player.getEquippedStack(EquipmentSlot.FEET);
 
-            if((head.getItem() == ItemInit.ELVEN_HELMET &&
+            if ((head.getItem() == ItemInit.ELVEN_HELMET &&
                     chest.getItem() == ItemInit.ELVEN_CHESTPLATE &&
                     legs.getItem() == ItemInit.ELVEN_LEGGINGS &&
-                    feet.getItem() == ItemInit.ELVEN_BOOTS))
-            {
+                    feet.getItem() == ItemInit.ELVEN_BOOTS)) {
                 ArmorEffects.giveSpeedEffect(world, player);
                 ArmorEffects.giveJumpBoostEffect(world, player);
                 ArmorEffects.giveNightVisionEffect(world, player);
                 effectsCleared = false;
-            }
-            else {
-                while(effectsCleared == false)
-                {
+            } else {
+                while (effectsCleared == false) {
                     ArmorEffects.clearEffects(world, player);
                     effectsCleared = true;
                 }

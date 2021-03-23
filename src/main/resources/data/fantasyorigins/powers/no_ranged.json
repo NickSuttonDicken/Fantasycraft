@@ -1,0 +1,11 @@
+{
+  "type": "origins:prevent_item_use",
+  "item_condition": {
+    "type": "origins:ingredient",
+    "ingredient": {
+      "tag": "fantasycraft:ranged_weapons"
+    }
+  },
+  "name": "Ranged aversion",
+  "description": "Orcs are proud warriors that value skill in close combat above everything else, deeming ranged weaponry as tools for cowards."
+}
