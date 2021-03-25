@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.froztigaming.fantasycraft.FantasycraftMain;
 import net.froztigaming.fantasycraft.armor.*;
 import net.froztigaming.fantasycraft.entity.ElvenArrowEntity;
+import net.froztigaming.fantasycraft.items.HobbitRing;
 import net.froztigaming.fantasycraft.items.SilverArrowHead;
 import net.froztigaming.fantasycraft.items.StoneRod;
 import net.froztigaming.fantasycraft.tools.bronze.*;
@@ -44,6 +45,7 @@ public class ItemInit {
     public static final PrismarineIngot PRISMARINE_INGOT = new PrismarineIngot(new Item.Settings().group(Fantasycraft));
     public static final StoneRod STONE_ROD = new StoneRod(new Item.Settings().group(Fantasycraft));
     public static final SilverArrowHead SILVER_ARROW_HEAD = new SilverArrowHead(new Item.Settings().group(Fantasycraft));
+    public static final HobbitRing HOBBIT_RING = new HobbitRing(new Item.Settings().group(Fantasycraft).maxCount(1).maxDamage(25));
 
 
     //Tools
@@ -103,6 +105,7 @@ public class ItemInit {
     {
         {
             Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "stone_rod"), STONE_ROD);
+            Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "hobbit_ring"), HOBBIT_RING);
 
             if (bronzeEnable)
             {

@@ -76,7 +76,7 @@ public class ArmorEffects {
         }
     }
 
-    public static void giveNightVisionEffect(World word, PlayerEntity player)
+    public static void giveNightVisionEffect(World world, PlayerEntity player)
     {
         if (player.isAlive())
         {
@@ -87,7 +87,7 @@ public class ArmorEffects {
         }
     }
 
-    public static void giveConduitPowerEffect(World word, PlayerEntity player)
+    public static void giveConduitPowerEffect(World world, PlayerEntity player)
     {
         if (player.isWet())
         {
@@ -98,7 +98,7 @@ public class ArmorEffects {
         }
     }
 
-    public static void giveJumpBoostEffect(World word, PlayerEntity player)
+    public static void giveJumpBoostEffect(World world, PlayerEntity player)
     {
         if (player.isAlive())
         {
@@ -109,13 +109,24 @@ public class ArmorEffects {
         }
     }
 
-    public static void giveSpeedEffect(World word, PlayerEntity player)
+    public static void giveSpeedEffect(World world, PlayerEntity player)
     {
         if (player.isAlive())
         {
             StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, 99999999, 0, false, false);
             {
                 player.addStatusEffect(speed);
+            }
+        }
+    }
+
+    public static void giveInvisibilityEffect(World world, PlayerEntity player)
+    {
+        if (player.isAlive())
+        {
+            StatusEffectInstance invisibility = new StatusEffectInstance(StatusEffects.INVISIBILITY, 3600, 0, false, false);
+            {
+                player.addStatusEffect(invisibility);
             }
         }
     }
@@ -127,4 +138,5 @@ public class ArmorEffects {
             player.clearStatusEffects();
         }
     }
+
 }
