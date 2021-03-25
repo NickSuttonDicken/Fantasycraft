@@ -14,6 +14,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -30,9 +31,12 @@ public class FantasycraftClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityRendererRegistry.INSTANCE.register(ItemInit.ELVEN_ARROW_ENTITY_TYPE, (dispatcher, context) ->
                 new ElvenArrowRenderer(dispatcher));
+
         EntityRendererRegistry.INSTANCE.register(ItemInit.TRITON_TRIDENT_ENTITY_TYPE, (dispatcher, context) ->
                 new TritonTridentRenderer(dispatcher));
+
         registerBow();
+        registerTrident();
         receiveEntityPacket();
     }
 
@@ -41,6 +45,12 @@ public class FantasycraftClient implements ClientModInitializer {
         FabricModelPredicateProviderRegistry.register(ItemInit.ELVEN_BOW, pull, ModelPredicateProviderRegistry.get(Items.BOW, pull));
         Identifier pulling = new Identifier("pulling");
         FabricModelPredicateProviderRegistry.register(ItemInit.ELVEN_BOW, pulling, ModelPredicateProviderRegistry.get(Items.BOW, pulling));
+    }
+
+    public static void registerTrident()
+    {
+        Identifier throwing = new Identifier("throwing");
+        FabricModelPredicateProviderRegistry.register(ItemInit.TRITON_TRIDENT, throwing, ModelPredicateProviderRegistry.get(Items.TRIDENT, throwing));
     }
 
     public void receiveEntityPacket() {

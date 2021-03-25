@@ -73,7 +73,7 @@ public class ItemInit {
     public static ToolItem TRITON_AXE = new TritonAxe(TritonPrismarineMaterial.INSTANCE, 9, -3.0f, new Item.Settings().group(Fantasycraft));
     public static ToolItem TRITON_HOE = new TritonHoe(TritonPrismarineMaterial.INSTANCE, 0, 0f, new Item.Settings().group(Fantasycraft));
     public static ToolItem TRITON_SWORD = new TritonSword(TritonPrismarineMaterial.INSTANCE, 7, -2.4f, new Item.Settings().group(Fantasycraft));
-    public static TridentItem TRITON_TRIDENT = new TritonTrident(new Item.Settings().group(Fantasycraft).maxDamage(500));
+    public static TritonTrident TRITON_TRIDENT = new TritonTrident(new Item.Settings().group(Fantasycraft).maxDamage(500));
 
 
     //Armor
@@ -106,7 +106,7 @@ public class ItemInit {
             Registry.ENTITY_TYPE,
             new Identifier(FantasycraftMain.MOD_ID, "triton_trident"),
             FabricEntityTypeBuilder.<TritonTridentEntity>create(SpawnGroup.MISC, TritonTridentEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+                    .dimensions(EntityDimensions.fixed(5f, 5f))
                     .build()
     );
 

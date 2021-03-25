@@ -4,6 +4,7 @@
   "package": "net.froztigaming.fantasycraft.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+
   ],
   "client": [
     "FantasycraftMixin"

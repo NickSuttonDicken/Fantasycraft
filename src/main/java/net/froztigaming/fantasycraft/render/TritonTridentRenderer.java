@@ -2,30 +2,24 @@ package net.froztigaming.fantasycraft.render;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.froztigaming.fantasycraft.FantasycraftMain;
 import net.froztigaming.fantasycraft.entity.TritonTridentEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.render.entity.ProjectileEntityRenderer;
+import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.model.TridentEntityModel;
 import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformation.Mode;
-
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.util.math.Vector3f;
-import net.minecraft.entity.projectile.TridentEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
-import static net.froztigaming.fantasycraft.FantasycraftMain.id;
-
 @Environment(EnvType.CLIENT)
-public class TritonTridentRenderer extends ProjectileEntityRenderer<TritonTridentEntity> {
-    public static final Identifier TEXTURE = new Identifier("textures/entity/triton_trident.png");
-    private final TridentEntityModel model = new TridentEntityModel();
+public class TritonTridentRenderer extends EntityRenderer<TritonTridentEntity> {
+
+    public static final Identifier TEXTURE = new Identifier("fantasycraft:textures/entity/triton_trident.png");
+    private static final TridentEntityModel model = new TridentEntityModel();
 
     public TritonTridentRenderer(EntityRenderDispatcher entityRenderDispatcher) {
         super(entityRenderDispatcher);
@@ -42,7 +36,8 @@ public class TritonTridentRenderer extends ProjectileEntityRenderer<TritonTriden
     }
 
     @Override
-    public Identifier getTexture(TritonTridentEntity tridentEntity) {
+    public Identifier getTexture(TritonTridentEntity tritonTridentEntity) {
         return TEXTURE;
     }
+
 }
