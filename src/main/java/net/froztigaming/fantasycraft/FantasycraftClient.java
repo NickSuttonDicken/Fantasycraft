@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredica
 import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.render.ElvenArrowRenderer;
 import net.froztigaming.fantasycraft.render.EntitySpawnPacket;
+import net.froztigaming.fantasycraft.render.TritonTridentRenderer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.entity.Entity;
@@ -29,6 +30,8 @@ public class FantasycraftClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityRendererRegistry.INSTANCE.register(ItemInit.ELVEN_ARROW_ENTITY_TYPE, (dispatcher, context) ->
                 new ElvenArrowRenderer(dispatcher));
+        EntityRendererRegistry.INSTANCE.register(ItemInit.TRITON_TRIDENT_ENTITY_TYPE, (dispatcher, context) ->
+                new TritonTridentRenderer(dispatcher));
         registerBow();
         receiveEntityPacket();
     }

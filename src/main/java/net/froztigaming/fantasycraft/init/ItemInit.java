@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.froztigaming.fantasycraft.FantasycraftMain;
 import net.froztigaming.fantasycraft.armor.*;
 import net.froztigaming.fantasycraft.entity.ElvenArrowEntity;
+import net.froztigaming.fantasycraft.entity.TritonTridentEntity;
 import net.froztigaming.fantasycraft.items.HobbitRing;
 import net.froztigaming.fantasycraft.items.SilverArrowHead;
 import net.froztigaming.fantasycraft.items.StoneRod;
@@ -22,6 +23,7 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import org.lwjgl.system.CallbackI;
 
 import static net.froztigaming.fantasycraft.FantasycraftMain.Fantasycraft;
 
@@ -71,6 +73,7 @@ public class ItemInit {
     public static ToolItem TRITON_AXE = new TritonAxe(TritonPrismarineMaterial.INSTANCE, 9, -3.0f, new Item.Settings().group(Fantasycraft));
     public static ToolItem TRITON_HOE = new TritonHoe(TritonPrismarineMaterial.INSTANCE, 0, 0f, new Item.Settings().group(Fantasycraft));
     public static ToolItem TRITON_SWORD = new TritonSword(TritonPrismarineMaterial.INSTANCE, 7, -2.4f, new Item.Settings().group(Fantasycraft));
+    public static TridentItem TRITON_TRIDENT = new TritonTrident(new Item.Settings().group(Fantasycraft).maxDamage(500));
 
 
     //Armor
@@ -98,6 +101,13 @@ public class ItemInit {
             FabricEntityTypeBuilder.<ElvenArrowEntity>create(SpawnGroup.MISC, ElvenArrowEntity::new)
             .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
             .build()
+    );
+    public static EntityType<TritonTridentEntity> TRITON_TRIDENT_ENTITY_TYPE = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(FantasycraftMain.MOD_ID, "triton_trident"),
+            FabricEntityTypeBuilder.<TritonTridentEntity>create(SpawnGroup.MISC, TritonTridentEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+                    .build()
     );
 
     //Items ItemInit
@@ -159,6 +169,7 @@ public class ItemInit {
                 Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_axe"), TRITON_AXE);
                 Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_hoe"), TRITON_HOE);
                 Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_sword"), TRITON_SWORD);
+                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_trident"), TRITON_TRIDENT);
 
                 //Armor
                 Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_helmet"), TRITON_HELMET);

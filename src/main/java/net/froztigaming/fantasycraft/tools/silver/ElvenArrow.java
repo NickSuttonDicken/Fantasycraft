@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ElvenArrow extends ArrowItem {
-    public ElvenArrow(Item.Settings settings) {
+    public ElvenArrow(Settings settings) {
         super(settings);
     }
 

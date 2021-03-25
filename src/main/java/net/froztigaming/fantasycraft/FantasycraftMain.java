@@ -26,6 +26,10 @@ public class FantasycraftMain implements ModInitializer {
 	public static final Identifier PacketID = new Identifier(MOD_ID, "spawn_packet");
 	public static final FantasycraftConfig CONFIG = AutoConfig.register(FantasycraftConfig.class, PartitioningSerializer.wrap(JanksonConfigSerializer::new)).getConfig();
 
+	public static Identifier id(String id) {
+		return new Identifier(MOD_ID, id);
+	}
+
 	@Override
 	public void onInitialize() {
 		BlockInit.registerBlockEntities();
