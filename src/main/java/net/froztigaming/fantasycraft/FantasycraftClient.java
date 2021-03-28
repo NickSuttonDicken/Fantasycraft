@@ -4,6 +4,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.froztigaming.fantasycraft.init.ItemInit;
@@ -12,6 +13,7 @@ import net.froztigaming.fantasycraft.render.EntitySpawnPacket;
 import net.froztigaming.fantasycraft.render.TritonTridentRenderer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.client.render.entity.TridentEntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -32,8 +34,7 @@ public class FantasycraftClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(ItemInit.ELVEN_ARROW_ENTITY_TYPE, (dispatcher, context) ->
                 new ElvenArrowRenderer(dispatcher));
 
-        EntityRendererRegistry.INSTANCE.register(ItemInit.TRITON_TRIDENT_ENTITY_TYPE, (dispatcher, context) ->
-                new TritonTridentRenderer(dispatcher));
+        BuiltinItemRendererRegistry.INSTANCE.register(ItemInit.TRITON_TRIDENT, TritonTridentRenderer::render);
 
         registerBow();
         registerTrident();
@@ -49,8 +50,9 @@ public class FantasycraftClient implements ClientModInitializer {
 
     public static void registerTrident()
     {
-        Identifier throwing = new Identifier("throwing");
-        FabricModelPredicateProviderRegistry.register(ItemInit.TRITON_TRIDENT, throwing, ModelPredicateProviderRegistry.get(Items.TRIDENT, throwing));
+        FabricModelPredicateProviderRegistry.register(ItemInit.TRITON_TRIDENT, new Identifier("throwing"), (itemStack, clientWorld, livingEntity) -> {
+            return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F;
+        });
     }
 
     public void receiveEntityPacket() {

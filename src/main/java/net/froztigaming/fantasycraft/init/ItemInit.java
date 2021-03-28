@@ -102,13 +102,6 @@ public class ItemInit {
             .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
             .build()
     );
-    public static EntityType<TritonTridentEntity> TRITON_TRIDENT_ENTITY_TYPE = Registry.register(
-            Registry.ENTITY_TYPE,
-            new Identifier(FantasycraftMain.MOD_ID, "triton_trident"),
-            FabricEntityTypeBuilder.<TritonTridentEntity>create(SpawnGroup.MISC, TritonTridentEntity::new)
-                    .dimensions(EntityDimensions.fixed(5f, 5f))
-                    .build()
-    );
 
     //Items ItemInit
     public static void registerItems()
