@@ -3,9 +3,13 @@ package net.froztigaming.fantasycraft;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+import net.fabricmc.fabric.api.network.PacketContext;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.render.ElvenArrowRenderer;
@@ -13,20 +17,25 @@ import net.froztigaming.fantasycraft.render.EntitySpawnPacket;
 import net.froztigaming.fantasycraft.render.TritonTridentRenderer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.render.entity.TridentEntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.UUID;
 
 @Environment(EnvType.CLIENT)
 public class FantasycraftClient implements ClientModInitializer {
 
+    public static final Queue<Integer> TRIDENT_QUEUE = new LinkedList<>();
 
 
     @Override

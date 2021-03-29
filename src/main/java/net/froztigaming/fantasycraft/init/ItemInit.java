@@ -26,8 +26,13 @@ import net.minecraft.util.registry.Registry;
 import org.lwjgl.system.CallbackI;
 
 import static net.froztigaming.fantasycraft.FantasycraftMain.Fantasycraft;
+import static net.froztigaming.fantasycraft.FantasycraftMain.MOD_ID;
 
 public class ItemInit {
+
+    public static Identifier id(String id) {
+        return new Identifier(MOD_ID, id);
+    }
 
     static boolean bronzeEnable = FantasycraftMain.CONFIG.METALS.bronzeEnable;
     static boolean silverEnable = FantasycraftMain.CONFIG.METALS.silverEnable;
@@ -97,7 +102,7 @@ public class ItemInit {
     //Entities
     public static EntityType<ElvenArrowEntity> ELVEN_ARROW_ENTITY_TYPE = Registry.register(
             Registry.ENTITY_TYPE,
-            new Identifier(FantasycraftMain.MOD_ID, "elven_arrow"),
+            new Identifier(MOD_ID, "elven_arrow"),
             FabricEntityTypeBuilder.<ElvenArrowEntity>create(SpawnGroup.MISC, ElvenArrowEntity::new)
             .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
             .build()
@@ -107,86 +112,86 @@ public class ItemInit {
     public static void registerItems()
     {
         {
-            Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "stone_rod"), STONE_ROD);
-            Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "hobbit_ring"), HOBBIT_RING);
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "stone_rod"), STONE_ROD);
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hobbit_ring"), HOBBIT_RING);
 
             if (bronzeEnable)
             {
                 //Items
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "bronze_ingot"), BRONZE_INGOT);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bronze_ingot"), BRONZE_INGOT);
 
                 //Tools
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "dwarven_pickaxe"), DWARVEN_PICKAXE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "dwarven_shovel"), DWARVEN_SHOVEL);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "dwarven_axe"), DWARVEN_AXE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "dwarven_hoe"), DWARVEN_HOE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "dwarven_sword"), DWARVEN_SWORD);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_pickaxe"), DWARVEN_PICKAXE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_shovel"), DWARVEN_SHOVEL);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_axe"), DWARVEN_AXE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_hoe"), DWARVEN_HOE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_sword"), DWARVEN_SWORD);
 
                 //Armor
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "dwarven_helmet"), DWARVEN_HELMET);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "dwarven_chestplate"), DWARVEN_CHESTPLATE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "dwarven_leggings"), DWARVEN_LEGGINGS);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "dwarven_boots"), DWARVEN_BOOTS);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_helmet"), DWARVEN_HELMET);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_chestplate"), DWARVEN_CHESTPLATE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_leggings"), DWARVEN_LEGGINGS);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dwarven_boots"), DWARVEN_BOOTS);
             }
 
             if (silverEnable)
             {
                 //Items
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "silver_ingot"), SILVER_INGOT);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "silver_arrow_head"), SILVER_ARROW_HEAD);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_ingot"), SILVER_INGOT);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_arrow_head"), SILVER_ARROW_HEAD);
 
                 //Tools
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_pickaxe"), ELVEN_PICKAXE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_shovel"), ELVEN_SHOVEL);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_axe"), ELVEN_AXE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_hoe"), ELVEN_HOE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_sword"), ELVEN_SWORD);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_bow"), ELVEN_BOW);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_arrow"), ELVEN_ARROW);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_pickaxe"), ELVEN_PICKAXE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_shovel"), ELVEN_SHOVEL);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_axe"), ELVEN_AXE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_hoe"), ELVEN_HOE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_sword"), ELVEN_SWORD);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_bow"), ELVEN_BOW);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_arrow"), ELVEN_ARROW);
 
                 //Armor
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_helmet"), ELVEN_HELMET);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_chestplate"), ELVEN_CHESTPLATE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_leggings"), ELVEN_LEGGINGS);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_boots"), ELVEN_BOOTS);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_helmet"), ELVEN_HELMET);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_chestplate"), ELVEN_CHESTPLATE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_leggings"), ELVEN_LEGGINGS);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_boots"), ELVEN_BOOTS);
             }
 
             if (prismarineEnable)
             {
                 //Items
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "prismarine_ingot"), PRISMARINE_INGOT);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "prismarine_ingot"), PRISMARINE_INGOT);
 
                 //Tools
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_pickaxe"), TRITON_PICKAXE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_shovel"), TRITON_SHOVEL);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_axe"), TRITON_AXE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_hoe"), TRITON_HOE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_sword"), TRITON_SWORD);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_trident"), TRITON_TRIDENT);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_pickaxe"), TRITON_PICKAXE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_shovel"), TRITON_SHOVEL);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_axe"), TRITON_AXE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_hoe"), TRITON_HOE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_sword"), TRITON_SWORD);
+                //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_trident"), TRITON_TRIDENT);
 
                 //Armor
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_helmet"), TRITON_HELMET);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_chestplate"), TRITON_CHESTPLATE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_leggings"), TRITON_LEGGINGS);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "triton_boots"), TRITON_BOOTS);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_helmet"), TRITON_HELMET);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_chestplate"), TRITON_CHESTPLATE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_leggings"), TRITON_LEGGINGS);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_boots"), TRITON_BOOTS);
             }
             if (mithrilEnable)
             {
                 //Items
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_ingot"), MITHRIL_INGOT);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_ingot"), MITHRIL_INGOT);
 
                 //Tools
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_pickaxe"), MITHRIL_PICKAXE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_shovel"), MITHRIL_SHOVEL);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_axe"), MITHRIL_AXE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_hoe"), MITHRIL_HOE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_sword"), MITHRIL_SWORD);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_pickaxe"), MITHRIL_PICKAXE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_shovel"), MITHRIL_SHOVEL);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_axe"), MITHRIL_AXE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_hoe"), MITHRIL_HOE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_sword"), MITHRIL_SWORD);
 
                 //Armor ItemInit
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_helmet"), MITHRIL_HELMET);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_chestplate"), MITHRIL_CHESTPLATE);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_leggings"), MITHRIL_LEGGINGS);
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_boots"), MITHRIL_BOOTS);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_helmet"), MITHRIL_HELMET);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_chestplate"), MITHRIL_CHESTPLATE);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_leggings"), MITHRIL_LEGGINGS);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_boots"), MITHRIL_BOOTS);
             }
         }
     }

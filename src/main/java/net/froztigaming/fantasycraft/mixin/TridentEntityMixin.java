@@ -3,6 +3,7 @@ package net.froztigaming.fantasycraft.mixin;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.froztigaming.fantasycraft.FantasycraftMain;
+import net.froztigaming.fantasycraft.init.ItemInit;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.TridentEntity;
@@ -23,7 +24,7 @@ public class TridentEntityMixin {
         if (((Object) this) instanceof TridentEntity) {
             PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
             passedData.writeInt(Registry.ITEM.getRawId(((TridentEntity) (Object) this).tridentStack.getItem()));
-            ServerPlayNetworking.send((ServerPlayerEntity) ((Entity) (Object) this).world.getServer().getPlayerManager().getPlayerList(), FantasycraftMain.id("triton_trident"), passedData);
+            ServerPlayNetworking.send((ServerPlayerEntity) ((ServerPlayerEntity) (Object) this).world.getServer().getPlayerManager().getPlayerList(), ItemInit.id("triton_trident"), passedData);
         }
     }
 }

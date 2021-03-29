@@ -4,14 +4,11 @@
   "package": "net.froztigaming.fantasycraft.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "TridentEntityMixin"
+
 
   ],
   "client": [
-    "FantasycraftMixin",
-    "ItemRendererAccessor",
-    "ItemRendererMixin",
-    "TridentEntityRendererMixin"
+    "FantasycraftMixin"
   ],
   "injectors": {
     "defaultRequire": 1

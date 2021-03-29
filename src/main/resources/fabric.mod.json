@@ -13,7 +13,7 @@
     "sources": "https://github.com/FroztiGaming/Fantasycraft"
   },
 
-  "license": "GPL-3.0",
+  "license": "MIT",
   "icon": "assets/fantasycraft/icon.png",
 
   "environment": "*",
