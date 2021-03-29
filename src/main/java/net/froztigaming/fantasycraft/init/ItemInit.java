@@ -81,7 +81,7 @@ public class ItemInit {
     public static ToolItem TRITON_AXE = new TritonAxe(TritonPrismarineMaterial.INSTANCE, 9, -3.0f, new Item.Settings().group(Fantasycraft));
     public static ToolItem TRITON_HOE = new TritonHoe(TritonPrismarineMaterial.INSTANCE, 0, 0f, new Item.Settings().group(Fantasycraft));
     public static ToolItem TRITON_SWORD = new TritonSword(TritonPrismarineMaterial.INSTANCE, 7, -2.4f, new Item.Settings().group(Fantasycraft));
-    public static TritonTrident TRITON_TRIDENT = new TritonTrident(new Item.Settings().group(Fantasycraft).maxDamage(500));
+    public static TritonTrident TRITON_TRIDENT = new TritonTrident(TritonPrismarineMaterial.INSTANCE, 9, -2.7f, () -> EntityInit.TRITON_TRIDENT_ENTITY, new Item.Settings().group(Fantasycraft));
 
 
     //Armor
@@ -171,7 +171,7 @@ public class ItemInit {
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_axe"), TRITON_AXE);
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_hoe"), TRITON_HOE);
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_sword"), TRITON_SWORD);
-                //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_trident"), TRITON_TRIDENT);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_trident"), TRITON_TRIDENT);
 
                 //Armor
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "triton_helmet"), TRITON_HELMET);

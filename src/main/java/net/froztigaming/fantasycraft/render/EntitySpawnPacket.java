@@ -22,6 +22,8 @@ public class EntitySpawnPacket {
         PacketBufUtil.writeVec3d(byteBuf, e.getPos());
         PacketBufUtil.writeAngle(byteBuf, e.pitch);
         PacketBufUtil.writeAngle(byteBuf, e.yaw);
+
+
         return ServerSidePacketRegistry.INSTANCE.toPacket(packetID, byteBuf);
     }
     public static final class PacketBufUtil {

@@ -14,10 +14,12 @@ import net.fabricmc.fabric.api.network.PacketContext;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
+import net.froztigaming.fantasycraft.init.EntityInit;
 import net.froztigaming.fantasycraft.init.FantasycraftScreenHandlerType;
 import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.render.ElvenArrowRenderer;
 import net.froztigaming.fantasycraft.render.EntitySpawnPacket;
+import net.froztigaming.fantasycraft.render.TritonTridentEntityRenderer;
 import net.froztigaming.fantasycraft.render.TritonTridentRenderer;
 import net.froztigaming.fantasycraft.screenhandlers.FantasycraftChestScreenHandler;
 import net.minecraft.client.MinecraftClient;
@@ -49,7 +51,8 @@ public class FantasycraftClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(ItemInit.ELVEN_ARROW_ENTITY_TYPE, (dispatcher, context) ->
                 new ElvenArrowRenderer(dispatcher));
 
-        BuiltinItemRendererRegistry.INSTANCE.register(ItemInit.TRITON_TRIDENT, TritonTridentRenderer::render);
+        EntityRendererRegistry.INSTANCE.register(EntityInit.TRITON_TRIDENT_ENTITY, (dispatcher, context) ->
+                new TritonTridentEntityRenderer(dispatcher));
 
         ScreenRegistry.<FantasycraftChestScreenHandler, CottonInventoryScreen<FantasycraftChestScreenHandler>>register(FantasycraftScreenHandlerType.ELVEN_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
 
