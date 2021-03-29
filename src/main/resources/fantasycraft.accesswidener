@@ -2,5 +2,7 @@ accessWidener v1 named
 
 accessible class net/minecraft/recipe/CookingRecipeSerializer$RecipeFactory
 
+accessible class net/minecraft/item/FoodComponent
+
 accessible field net/minecraft/entity/projectile/TridentEntity tridentStack Lnet/minecraft/item/ItemStack;
 accessible field net/minecraft/entity/projectile/TridentEntity dealtDamage Z

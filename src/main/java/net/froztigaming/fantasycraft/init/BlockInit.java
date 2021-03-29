@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.froztigaming.fantasycraft.FantasycraftMain;
 import net.froztigaming.fantasycraft.blocks.containers.DwarvenBlastFurnace;
+import net.froztigaming.fantasycraft.blocks.containers.ElvenChest;
 import net.froztigaming.fantasycraft.blocks.materialblocks.BronzeBlock;
 import net.froztigaming.fantasycraft.blocks.materialblocks.MithrilBlock;
 import net.froztigaming.fantasycraft.blocks.materialblocks.PrismarineBlock;
@@ -14,11 +15,13 @@ import net.froztigaming.fantasycraft.blocks.ores.MithrilOre;
 import net.froztigaming.fantasycraft.blocks.ores.SilverOre;
 import net.froztigaming.fantasycraft.config.FantasycraftConfig;
 import net.froztigaming.fantasycraft.entity.DwarvenBlastFurnaceEntity;
+import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import org.lwjgl.system.CallbackI;
 
 import static net.froztigaming.fantasycraft.FantasycraftMain.Fantasycraft;
 
@@ -31,6 +34,7 @@ public class BlockInit {
 
     //Blocks
     public static final DwarvenBlastFurnace DWARVEN_BLAST_FURNACE = new DwarvenBlastFurnace(FabricBlockSettings.of(Material.METAL).strength(4.5f).breakByTool(FabricToolTags.PICKAXES, 1).requiresTool());
+    public static final Block ELVEN_CHEST = new ElvenChest();
     public static final MithrilBlock MITHRIL_BLOCK = new MithrilBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).breakByTool(FabricToolTags.PICKAXES, 4).requiresTool());
     public static final BronzeBlock BRONZE_BLOCK = new BronzeBlock(FabricBlockSettings.of(Material.METAL).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
     public static final SilverBlock SILVER_BLOCK = new SilverBlock(FabricBlockSettings.of(Material.METAL).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
@@ -57,6 +61,7 @@ public class BlockInit {
             {
                 Registry.register(Registry.BLOCK, new Identifier(FantasycraftMain.MOD_ID, "silver_ore"), SILVER_ORE);
                 Registry.register(Registry.BLOCK, new Identifier(FantasycraftMain.MOD_ID, "silver_block"), SILVER_BLOCK);
+                Registry.register(Registry.BLOCK, new Identifier(FantasycraftMain.MOD_ID, "elven_chest"), ELVEN_CHEST);
             }
 
             if (prismarineEnable)
@@ -85,6 +90,7 @@ public class BlockInit {
             if (silverEnable) {
                 Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "silver_ore"), new BlockItem(SILVER_ORE, new FabricItemSettings().group(Fantasycraft)));
                 Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "silver_block"), new BlockItem(SILVER_BLOCK, new FabricItemSettings().group(Fantasycraft)));
+                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "elven_chest"), new BlockItem(ELVEN_CHEST, new FabricItemSettings().group(Fantasycraft)));
             }
 
             if (prismarineEnable) {

@@ -7,7 +7,9 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.froztigaming.fantasycraft.config.FantasycraftConfig;
 import net.froztigaming.fantasycraft.init.BlockInit;
+import net.froztigaming.fantasycraft.init.FantasycraftScreenHandlerType;
 import net.froztigaming.fantasycraft.init.ItemInit;
+import net.froztigaming.fantasycraft.init.FantasycraftBlockEntityType;
 import net.froztigaming.fantasycraft.world.ModConfiguredFeatures;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -37,5 +39,7 @@ public class FantasycraftMain implements ModInitializer {
 		BlockInit.registerBlockItems();
 		ItemInit.registerItems();
 		ModConfiguredFeatures.Features();
+		FantasycraftBlockEntityType.registerBlockEntities();
+		FantasycraftScreenHandlerType.registerScreenHandlers();
 	}
 }

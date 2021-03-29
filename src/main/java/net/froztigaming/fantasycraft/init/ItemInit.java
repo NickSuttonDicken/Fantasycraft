@@ -45,6 +45,9 @@ public class ItemInit {
     public static final ArmorMaterial ELVEN_ARMOR_MATERIAL = new ElvenArmorMaterial();
     public static final ArmorMaterial TRITON_ARMOR_MATERIAL = new TritonArmorMaterial();
 
+    //Food
+    public static final Item SILVER_FLESH = new Item(new Item.Settings().group(Fantasycraft).food(new  FoodComponent.Builder().hunger(6).saturationModifier(1.2F).meat().build()));
+
     //Items
     public static final MithrilIngot MITHRIL_INGOT = new MithrilIngot(new Item.Settings().group(Fantasycraft).fireproof());
     public static final SilverIngot SILVER_INGOT = new SilverIngot(new Item.Settings().group(Fantasycraft));
@@ -112,6 +115,7 @@ public class ItemInit {
     public static void registerItems()
     {
         {
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_flesh"), SILVER_FLESH);
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "stone_rod"), STONE_ROD);
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hobbit_ring"), HOBBIT_RING);
 
