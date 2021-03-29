@@ -13,7 +13,7 @@ public class ArmorEffects {
     {
         if(player.isAlive())
         {
-            StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 99999999,0, false, false);
+            StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 8,0, false, false);
             {
                 player.addStatusEffect(slowness);
             }
@@ -37,7 +37,7 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance fireResistance = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 99999999, 0, false, false);
+            StatusEffectInstance fireResistance = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 8, 0, false, false);
             {
                 player.addStatusEffect(fireResistance);
             }
@@ -48,7 +48,7 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance haste = new StatusEffectInstance(StatusEffects.HASTE, 99999999, 0, false, false);
+            StatusEffectInstance haste = new StatusEffectInstance(StatusEffects.HASTE, 8, 0, false, false);
             {
                 player.addStatusEffect(haste);
             }
@@ -69,7 +69,7 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance regen = new StatusEffectInstance(StatusEffects.REGENERATION, 99999999, 0, false, false);
+            StatusEffectInstance regen = new StatusEffectInstance(StatusEffects.REGENERATION, 8, 0, false, false);
             {
                 player.addStatusEffect(regen);
             }
@@ -102,7 +102,7 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance jumpBoost = new StatusEffectInstance(StatusEffects.JUMP_BOOST, 99999999, 0, false, false);
+            StatusEffectInstance jumpBoost = new StatusEffectInstance(StatusEffects.JUMP_BOOST, 8, 0, false, false);
             {
                 player.addStatusEffect(jumpBoost);
             }
@@ -113,7 +113,7 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, 99999999, 0, false, false);
+            StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, 8, 0, false, false);
             {
                 player.addStatusEffect(speed);
             }
@@ -139,4 +139,11 @@ public class ArmorEffects {
         }
     }
 
+    public static void removeNightVisionEffect(World world, PlayerEntity player)
+    {
+        if (player.isAlive())
+        {
+            player.removeStatusEffect(StatusEffects.NIGHT_VISION);
+        }
+    }
 }

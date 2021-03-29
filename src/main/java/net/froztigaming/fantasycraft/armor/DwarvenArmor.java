@@ -52,7 +52,7 @@ public class DwarvenArmor extends ArmorItem {
             else {
                 while(effectsCleared == false)
                 {
-                    ArmorEffects.clearEffects(world, player);
+                    ArmorEffects.removeNightVisionEffect(world, player);
                     effectsCleared = true;
                 }
             }

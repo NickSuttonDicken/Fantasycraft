@@ -40,7 +40,7 @@ public enum TritonTridentRenderer {
             matrices.scale(1.5f, -1.5f, -1.5f);
         } else if (renderMode != ModelTransformation.Mode.FIRST_PERSON_LEFT_HAND
                 && renderMode != ModelTransformation.Mode.FIRST_PERSON_RIGHT_HAND) {
-            matrices.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(67.5F));
+            matrices.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(60F));
             matrices.translate(0.0D, 0.75D, 0.0D);
             matrices.scale(1.5F, 1.5F, 1.5F);
         } else {

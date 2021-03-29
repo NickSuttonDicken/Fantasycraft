@@ -25,7 +25,7 @@ public class MithrilArmor extends ArmorItem {
     }
 
     static boolean enablePerks = true;
-    static boolean effectsCleared = true;
+    //static boolean effectsCleared = true;
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
@@ -45,15 +45,15 @@ public class MithrilArmor extends ArmorItem {
                     feet.getItem() == ItemInit.MITHRIL_BOOTS))
             {
                 ArmorEffects.giveRegenEffect(world, player);
-                effectsCleared = false;
+                //effectsCleared = false;
             }
-            else {
+            /*else {
                 while(effectsCleared == false)
                 {
                     ArmorEffects.clearEffects(world, player);
                     effectsCleared = true;
                 }
-            }
+            }*/
         }
     }
 

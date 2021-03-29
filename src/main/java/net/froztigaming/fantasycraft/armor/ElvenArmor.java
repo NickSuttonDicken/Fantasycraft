@@ -49,7 +49,7 @@ public class ElvenArmor extends ArmorItem {
                 effectsCleared = false;
             } else {
                 while (effectsCleared == false) {
-                    ArmorEffects.clearEffects(world, player);
+                    ArmorEffects.removeNightVisionEffect(world, player);
                     effectsCleared = true;
                 }
             }
