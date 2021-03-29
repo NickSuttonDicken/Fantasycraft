@@ -34,16 +34,17 @@ public enum TritonTridentRenderer {
         if (entity != null && entity.isUsingItem() && entity.getActiveItem() == stack
                 && (renderMode == ModelTransformation.Mode.THIRD_PERSON_LEFT_HAND
                 || renderMode == ModelTransformation.Mode.THIRD_PERSON_RIGHT_HAND)) {
-            matrices.multiply(Vector3f.POSITIVE_Z.getDegreesQuaternion(180F));
+            matrices.multiply(Vector3f.POSITIVE_Z.getDegreesQuaternion(0F));
             matrices.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(90F));
-            matrices.translate(0.0D, 1.5D, 0.0D);
+            matrices.translate(0.0D, -1.5D, 0.0D);
+            matrices.scale(1.5f, -1.5f, -1.5f);
         } else if (renderMode != ModelTransformation.Mode.FIRST_PERSON_LEFT_HAND
                 && renderMode != ModelTransformation.Mode.FIRST_PERSON_RIGHT_HAND) {
             matrices.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(67.5F));
-            matrices.translate(0.0D, 0.5D, 0.0D);
-            matrices.scale(1.25F, 1.25F, 1.25F);
+            matrices.translate(0.0D, 0.75D, 0.0D);
+            matrices.scale(1.5F, 1.5F, 1.5F);
         } else {
-            matrices.translate(0.0D, 0.35D, -0.125D);
+            matrices.translate(0.0D, 0.35D, -0.13D);
         }
 
         matrices.scale(1.25F, -1.25F, -1.25F);
