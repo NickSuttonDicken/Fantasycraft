@@ -95,7 +95,7 @@ public class TritonTridentEntity extends PersistentProjectileEntity {
             return;
         }
         this.piercedEntities.add(hitEntity.getUuid());
-        float damage = ((TritonTrident) this.trident.getItem()).getAttackDamage() * 2;
+        float damage = ((TritonTrident) this.trident.getItem()).getAttackDamage();
         if (hitEntity instanceof AnimalEntity) {
             int impalingLevel = EnchantmentHelper.getLevel(Enchantments.IMPALING, this.trident);
             if (impalingLevel > 0) {
