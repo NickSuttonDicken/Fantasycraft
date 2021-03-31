@@ -9,6 +9,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.ProjectileDamageSource;
@@ -24,9 +25,11 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.Packet;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -41,9 +44,9 @@ public class TritonTridentEntity extends PersistentProjectileEntity {
     private static final TrackedData<Byte> LOYALTY;
     private static final TrackedData<Boolean> ENCHANTMENT_GLINT;
     private ItemStack trident;
-    private final Set<UUID> piercedEntities = new HashSet<>();
     public int returnTimer;
     private boolean dealtDamage;
+
 
     public TritonTridentEntity(EntityType<? extends TritonTridentEntity> entityType, World world, TritonTrident item) {
         super(entityType, world);
@@ -89,45 +92,48 @@ public class TritonTridentEntity extends PersistentProjectileEntity {
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
-        int level = EnchantmentHelper.getLevel(Enchantments.PIERCING, this.trident);
-        Entity hitEntity = entityHitResult.getEntity();
-        if (this.piercedEntities.contains(hitEntity.getUuid()) || this.piercedEntities.size() > level) {
-            return;
+        Entity entity = entityHitResult.getEntity();
+        float f = 8.0F;
+        if (entity instanceof LivingEntity) {
+            LivingEntity livingEntity = (LivingEntity)entity;
+            f += EnchantmentHelper.getAttackDamage(this.trident, livingEntity.getGroup());
         }
-        this.piercedEntities.add(hitEntity.getUuid());
-        float damage = ((TritonTrident) this.trident.getItem()).getAttackDamage();
-        if (hitEntity instanceof AnimalEntity) {
-            int impalingLevel = EnchantmentHelper.getLevel(Enchantments.IMPALING, this.trident);
-            if (impalingLevel > 0) {
-                damage += impalingLevel * 1.5F;
-            }
-        }
-        this.dealtDamage = true;
-        Entity owner = this.getOwner();
-        DamageSource damageSource = createDamageSource(this, owner == null ? this : owner);
-        SoundEvent soundEvent = SoundEvents.ITEM_TRIDENT_HIT;
 
-        if (hitEntity.damage(damageSource, damage)) {
-            if (hitEntity.getType() == EntityType.ENDERMAN) {
+        Entity entity2 = this.getOwner();
+        DamageSource damageSource = DamageSource.trident(this, (Entity)(entity2 == null ? this : entity2));
+        this.dealtDamage = true;
+        SoundEvent soundEvent = SoundEvents.ITEM_TRIDENT_HIT;
+        if (entity.damage(damageSource, f)) {
+            if (entity.getType() == EntityType.ENDERMAN) {
                 return;
             }
-            if (hitEntity instanceof LivingEntity) {
-                LivingEntity hitLivingEntity = (LivingEntity) hitEntity;
-                if (owner instanceof LivingEntity) {
-                    EnchantmentHelper.onUserDamaged(hitLivingEntity, owner);
-                    EnchantmentHelper.onTargetDamaged((LivingEntity) owner, hitLivingEntity);
+
+            if (entity instanceof LivingEntity) {
+                LivingEntity livingEntity2 = (LivingEntity)entity;
+                if (entity2 instanceof LivingEntity) {
+                    EnchantmentHelper.onUserDamaged(livingEntity2, entity2);
+                    EnchantmentHelper.onTargetDamaged((LivingEntity)entity2, livingEntity2);
                 }
-                this.playSound(soundEvent, 1.0F, 1.0F);
-                this.onHit(hitLivingEntity);
+
+                this.onHit(livingEntity2);
             }
         }
 
-        if (this.piercedEntities.size() > level) {
-            this.setVelocity(this.getVelocity().multiply(-0.01D, -0.1D, -0.01D));
-        } else {
-            this.setVelocity(this.getVelocity().multiply(0.75));
+        this.setVelocity(this.getVelocity().multiply(-0.01D, -0.1D, -0.01D));
+        float g = 1.0F;
+        if (this.world instanceof ServerWorld && this.world.isThundering() && EnchantmentHelper.hasChanneling(this.trident)) {
+            BlockPos blockPos = entity.getBlockPos();
+            if (this.world.isSkyVisible(blockPos)) {
+                LightningEntity lightningEntity = (LightningEntity)EntityType.LIGHTNING_BOLT.create(this.world);
+                lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(blockPos));
+                lightningEntity.setChanneler(entity2 instanceof ServerPlayerEntity ? (ServerPlayerEntity)entity2 : null);
+                this.world.spawnEntity(lightningEntity);
+                soundEvent = SoundEvents.ITEM_TRIDENT_THUNDER;
+                g = 5.0F;
+            }
         }
 
+        this.playSound(soundEvent, g, 1.0F);
     }
 
     @Override
@@ -193,34 +199,19 @@ public class TritonTridentEntity extends PersistentProjectileEntity {
     @Override
     public void readCustomDataFromTag(CompoundTag tag) {
         super.readCustomDataFromTag(tag);
-        if (tag.contains("javelin", 10)) {
-            this.trident = ItemStack.fromTag(tag.getCompound("javelin"));
-            this.dataTracker.set(ENCHANTMENT_GLINT, this.trident.hasGlint());
+        if (tag.contains("Trident", 10)) {
+            this.trident = ItemStack.fromTag(tag.getCompound("Trident"));
         }
 
-        this.piercedEntities.clear();
-        if (tag.contains("javelin_hit", 9)) {
-            for (Tag hitEntity : tag.getList("javelin_hit", 10)) {
-                this.piercedEntities.add(((CompoundTag) hitEntity).getUuid("UUID"));
-            }
-        }
         this.dealtDamage = tag.getBoolean("DealtDamage");
-        this.dataTracker.set(LOYALTY, (byte) EnchantmentHelper.getLoyalty(this.trident));
+        this.dataTracker.set(LOYALTY, (byte)EnchantmentHelper.getLoyalty(this.trident));
     }
 
     @Override
     public void writeCustomDataToTag(CompoundTag tag) {
         super.writeCustomDataToTag(tag);
-        tag.put("javelin", this.trident.toTag(new CompoundTag()));
-
-        ListTag tags = new ListTag();
-        for (UUID uuid : this.piercedEntities) {
-            CompoundTag c = new CompoundTag();
-            c.putUuid("UUID", uuid);
-            tags.add(c);
-        }
+        tag.put("Trident", this.trident.toTag(new CompoundTag()));
         tag.putBoolean("DealtDamage", this.dealtDamage);
-        tag.put("javelin_hit", tags);
     }
 
     @Override
