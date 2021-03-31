@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "fantasycraft:block/elven_chest" },
+    "facing=east":  { "model": "fantasycraft:block/elven_chest", "y":  90},
+    "facing=south": { "model": "fantasycraft:block/elven_chest", "y": 180 },
+    "facing=west":  { "model": "fantasycraft:block/elven_chest", "y": 270 }
+  }
+}

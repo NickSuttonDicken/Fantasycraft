@@ -5,6 +5,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
@@ -15,12 +16,10 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.froztigaming.fantasycraft.init.EntityInit;
+import net.froztigaming.fantasycraft.init.FantasycraftBlockEntityType;
 import net.froztigaming.fantasycraft.init.FantasycraftScreenHandlerType;
 import net.froztigaming.fantasycraft.init.ItemInit;
-import net.froztigaming.fantasycraft.render.ElvenArrowRenderer;
-import net.froztigaming.fantasycraft.render.EntitySpawnPacket;
-import net.froztigaming.fantasycraft.render.TritonTridentEntityRenderer;
-import net.froztigaming.fantasycraft.render.TritonTridentRenderer;
+import net.froztigaming.fantasycraft.render.*;
 import net.froztigaming.fantasycraft.screenhandlers.FantasycraftChestScreenHandler;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
@@ -56,8 +55,11 @@ public class FantasycraftClient implements ClientModInitializer {
 
         ScreenRegistry.<FantasycraftChestScreenHandler, CottonInventoryScreen<FantasycraftChestScreenHandler>>register(FantasycraftScreenHandlerType.ELVEN_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
 
-        ClientSpriteRegistryCallback.event(TexturedRenderLayers.CHEST_ATLAS_TEXTURE).register((texture, registry) ->
-                registry.register(new Identifier(FantasycraftMain.MOD_ID, "entity/chest/elven_chest")));
+        BlockEntityRendererRegistry.INSTANCE.register(FantasycraftBlockEntityType.ELVEN_CHEST, FantasycraftChestRenderer::new);
+
+        ClientSpriteRegistryCallback.event(TexturedRenderLayers.CHEST_ATLAS_TEXTURE).register((texture, registry) -> {
+            registry.register(new Identifier(FantasycraftMain.MOD_ID, "entity/chest/elven_chest"));
+        });
 
         registerBow();
         registerTrident();
