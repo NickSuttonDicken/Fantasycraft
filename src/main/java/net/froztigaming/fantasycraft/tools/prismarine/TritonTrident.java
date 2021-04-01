@@ -3,16 +3,15 @@ package net.froztigaming.fantasycraft.tools.prismarine;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.froztigaming.fantasycraft.entity.TritonTridentEntity;
+import net.froztigaming.fantasycraft.init.ItemInit;
+import net.froztigaming.fantasycraft.util.ArmorEffects;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MovementType;
+import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -41,6 +40,7 @@ import java.util.function.Supplier;
 public class TritonTrident extends Item implements Vanishable {
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
+    static boolean enablePerks = true;
     private final ToolMaterial material;
     private final float attackDamage;
     private final Supplier<EntityType<TritonTridentEntity>> typeSupplier;
@@ -193,6 +193,24 @@ public class TritonTrident extends Item implements Vanishable {
         } else {
             user.setCurrentHand(hand);
             return TypedActionResult.consume(itemStack);
+        }
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
+    {
+        if(!world.isClient && entity instanceof PlayerEntity && enablePerks)
+        {
+            PlayerEntity player = (PlayerEntity) entity;
+
+            ItemStack mainHand = player.getMainHandStack();
+            ItemStack offHand = player.getOffHandStack();
+
+            if(mainHand.getItem() == ItemInit.TRITON_TRIDENT || offHand.getItem() == ItemInit.TRITON_TRIDENT)
+            {
+                ArmorEffects.giveDolphinGraceEffect(world, player);
+            }
+
         }
     }
 

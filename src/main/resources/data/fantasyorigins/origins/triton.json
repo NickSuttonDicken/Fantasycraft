@@ -8,7 +8,7 @@
 		"fantasyorigins:dry_fatigue",
 		"fantasyorigins:fish_diet"
 	],
-	"icon": "minecraft:trident",
+	"icon": "fantasycraft:triton_trident",
 	"order": 6,
 	"impact": 2,
 	"name": "Triton",

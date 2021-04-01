@@ -15,7 +15,7 @@ public class TritonShovel extends ShovelItem {
     }
 
     static boolean enablePerks = true;
-    static boolean effectsCleared = true;
+
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
@@ -29,14 +29,6 @@ public class TritonShovel extends ShovelItem {
             if(mainHand.getItem() == ItemInit.TRITON_SHOVEL)
             {
                 ArmorEffects.giveUnderwaterHasteEffect(world, player);
-                effectsCleared = false;
-            }
-            else {
-                while(effectsCleared == false)
-                {
-                    ArmorEffects.clearEffects(world, player);
-                    effectsCleared = true;
-                }
             }
         }
     }

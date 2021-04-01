@@ -1,38 +1,52 @@
 package net.froztigaming.fantasycraft.entity;
 
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.froztigaming.fantasycraft.FantasycraftMain;
 import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.render.EntitySpawnPacket;
+import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.ArrowItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.Packet;
+import net.minecraft.network.packet.s2c.play.GameStateChangeS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class ElvenArrowEntity extends PersistentProjectileEntity {
 
-    private double arrowDamage = 4;
+    private double arrowDamage;
     private static final TrackedData<Integer> COLOR;
     private Potion potion;
     private final Set<StatusEffectInstance> effects;
@@ -75,7 +89,7 @@ public class ElvenArrowEntity extends PersistentProjectileEntity {
             } else {
                 this.setColor(i);
             }
-        } else if (stack.getItem() == Items.ARROW) {
+        } else if (stack.getItem() == ItemInit.ELVEN_ARROW) {
             this.potion = Potions.EMPTY;
             this.effects.clear();
             this.dataTracker.set(COLOR, -1);
@@ -259,6 +273,11 @@ public class ElvenArrowEntity extends PersistentProjectileEntity {
     @Override
     public Packet createSpawnPacket() {
         return EntitySpawnPacket.create(this, FantasycraftMain.PacketID);
+    }
+
+    @Override
+    public void setDamage(double damage) {
+        this.arrowDamage = damage;
     }
 
     @Override

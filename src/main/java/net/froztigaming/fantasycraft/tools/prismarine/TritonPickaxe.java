@@ -16,7 +16,6 @@ public class TritonPickaxe extends PickaxeItem {
 
 
     static boolean enablePerks = true;
-    static boolean effectsCleared = true;
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
@@ -30,14 +29,6 @@ public class TritonPickaxe extends PickaxeItem {
             if(mainHand.getItem() == ItemInit.TRITON_PICKAXE)
             {
                 ArmorEffects.giveUnderwaterHasteEffect(world, player);
-                effectsCleared = false;
-            }
-            else {
-                while(effectsCleared == false)
-                {
-                    ArmorEffects.clearEffects(world, player);
-                    effectsCleared = true;
-                }
             }
         }
     }

@@ -75,7 +75,7 @@ public class ItemInit {
     public static ToolItem ELVEN_HOE = new ElvenHoe(ElvenSilverMaterial.INSTANCE, 0, 0f, new Item.Settings().group(Fantasycraft));
     public static ToolItem ELVEN_SWORD = new ElvenSword(ElvenSilverMaterial.INSTANCE, 7, -2.4f, new Item.Settings().group(Fantasycraft));
     public static RangedWeaponItem ELVEN_BOW = new ElvenBow(new Item.Settings().group(Fantasycraft).maxDamage(770));
-    public static final ElvenArrow ELVEN_ARROW = new ElvenArrow(new Item.Settings().group(Fantasycraft));
+    public static final ElvenArrow ELVEN_ARROW = new ElvenArrow(new Item.Settings().group(Fantasycraft)).setDamage(4f);
     public static ToolItem TRITON_SHOVEL = new TritonShovel(TritonPrismarineMaterial.INSTANCE, 5.5f, -3.0f, new Item.Settings().group(Fantasycraft));
     public static ToolItem TRITON_PICKAXE = new TritonPickaxe(TritonPrismarineMaterial.INSTANCE, 6, -2.8f, new Item.Settings().group(Fantasycraft));
     public static ToolItem TRITON_AXE = new TritonAxe(TritonPrismarineMaterial.INSTANCE, 9, -3.0f, new Item.Settings().group(Fantasycraft));
@@ -151,7 +151,7 @@ public class ItemInit {
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_hoe"), ELVEN_HOE);
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_sword"), ELVEN_SWORD);
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_bow"), ELVEN_BOW);
-                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_arrow"), ELVEN_ARROW);
+                //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_arrow"), ELVEN_ARROW);
 
                 //Armor
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_helmet"), ELVEN_HELMET);

@@ -13,10 +13,26 @@ public class ElvenArrow extends ArrowItem {
         super(settings);
     }
 
+    private double damage = 4;
+
     public PersistentProjectileEntity createArrow(World world, ItemStack stack, LivingEntity shooter) {
         ElvenArrowEntity elvenArrowEntity = new ElvenArrowEntity(world, shooter);
         elvenArrowEntity.initFromStack(stack);
+        elvenArrowEntity.setDamage(this.damage);
         System.out.println("createArrow method called");
         return elvenArrowEntity;
     }
+
+    public double getDamage () {
+
+        return this.damage;
+    }
+
+    public ElvenArrow setDamage (double damage) {
+
+        this.damage = damage;
+        return this;
+    }
+
+
 }
