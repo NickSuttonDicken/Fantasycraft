@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MXM",
+    "Y#Z",
+    "MVM"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:gold_ingot"
+    },
+    "#": {
+      "tag": "minecraft:invisibility"
+    },
+    "X": {
+      "item": "fantasycraft:mithril_ingot"
+    },
+    "Y": {
+      "item" : "fantasycraft:silver_ingot"
+    },
+    "Z": {
+      "item": "fantasycraft:prismarine_ingot"
+    },
+    "V": {
+      "item": "fantasycraft:bronze_ingot"
+    }
+  },
+  "result": {
+    "item": "fantasycraft:hobbit_ring"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "fantasycraft:mithril_hoe",
+    "fantasycraft:dwarven_hoe",
+    "fantasycraft:elven_hoe",
+    "fantasycraft:triton_hoe"
+  ]
+}

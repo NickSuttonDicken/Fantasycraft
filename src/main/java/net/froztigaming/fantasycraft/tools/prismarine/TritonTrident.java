@@ -2,6 +2,8 @@ package net.froztigaming.fantasycraft.tools.prismarine;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.froztigaming.fantasycraft.FantasycraftMain;
+import net.froztigaming.fantasycraft.config.FantasycraftConfig;
 import net.froztigaming.fantasycraft.entity.TritonTridentEntity;
 import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
@@ -40,7 +42,9 @@ import java.util.function.Supplier;
 public class TritonTrident extends Item implements Vanishable {
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
-    static boolean enablePerks = true;
+    public static final FantasycraftConfig.BonusEffects CONFIG2 = FantasycraftMain.CONFIG.BONUSEFFECTS;
+
+    static boolean enableToolEffect = CONFIG2.enableToolEffect;
     private final ToolMaterial material;
     private final float attackDamage;
     private final Supplier<EntityType<TritonTridentEntity>> typeSupplier;
@@ -199,7 +203,7 @@ public class TritonTrident extends Item implements Vanishable {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
     {
-        if(!world.isClient && entity instanceof PlayerEntity && enablePerks)
+        if(!world.isClient && entity instanceof PlayerEntity && enableToolEffect)
         {
             PlayerEntity player = (PlayerEntity) entity;
 

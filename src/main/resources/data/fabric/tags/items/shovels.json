@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "fantasycraft:mithril_shovel",
+    "fantasycraft:dwarven_shovel",
+    "fantasycraft:elven_shovel",
+    "fantasycraft:triton_shovel"
+  ]
+}

@@ -1,5 +1,7 @@
 package net.froztigaming.fantasycraft.armor;
 
+import net.froztigaming.fantasycraft.FantasycraftMain;
+import net.froztigaming.fantasycraft.config.FantasycraftConfig;
 import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
 import net.minecraft.client.item.TooltipContext;
@@ -24,13 +26,14 @@ public class MithrilArmor extends ArmorItem {
         super(material, slot, settings);
     }
 
-    static boolean enablePerks = true;
-    //static boolean effectsCleared = true;
+    public static final FantasycraftConfig.BonusEffects CONFIG2 = FantasycraftMain.CONFIG.BONUSEFFECTS;
+
+    static boolean enableArmorSetBonuses = CONFIG2.enableArmorSetBonuses;
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
     {
-        if(!world.isClient && entity instanceof PlayerEntity && enablePerks)
+        if(!world.isClient && entity instanceof PlayerEntity && enableArmorSetBonuses)
         {
             PlayerEntity player = (PlayerEntity) entity;
 
@@ -45,15 +48,7 @@ public class MithrilArmor extends ArmorItem {
                     feet.getItem() == ItemInit.MITHRIL_BOOTS))
             {
                 ArmorEffects.giveRegenEffect(world, player);
-                //effectsCleared = false;
             }
-            /*else {
-                while(effectsCleared == false)
-                {
-                    ArmorEffects.clearEffects(world, player);
-                    effectsCleared = true;
-                }
-            }*/
         }
     }
 

@@ -1,5 +1,7 @@
 package net.froztigaming.fantasycraft.tools.prismarine;
 
+import net.froztigaming.fantasycraft.FantasycraftMain;
+import net.froztigaming.fantasycraft.config.FantasycraftConfig;
 import net.froztigaming.fantasycraft.init.ItemInit;
 import net.froztigaming.fantasycraft.util.ArmorEffects;
 import net.minecraft.entity.Entity;
@@ -14,13 +16,14 @@ public class TritonPickaxe extends PickaxeItem {
         super(material, attackDamage, attackSpeed, settings);
     }
 
+    public static final FantasycraftConfig.BonusEffects CONFIG2 = FantasycraftMain.CONFIG.BONUSEFFECTS;
 
-    static boolean enablePerks = true;
+    static boolean enableToolEffect = CONFIG2.enableToolEffect;
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
     {
-        if(!world.isClient && entity instanceof PlayerEntity && enablePerks)
+        if(!world.isClient && entity instanceof PlayerEntity && enableToolEffect)
         {
             PlayerEntity player = (PlayerEntity) entity;
 

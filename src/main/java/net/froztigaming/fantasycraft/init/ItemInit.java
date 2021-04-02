@@ -1,6 +1,7 @@
 package net.froztigaming.fantasycraft.init;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.froztigaming.fantasycraft.FantasycraftMain;
 import net.froztigaming.fantasycraft.armor.*;
 import net.froztigaming.fantasycraft.entity.ElvenArrowEntity;

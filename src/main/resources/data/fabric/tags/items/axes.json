@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "fantasycraft:mithril_axe",
+    "fantasycraft:dwarven_axe",
+    "fantasycraft:elven_axe",
+    "fantasycraft:triton_axe"
+  ]
+}

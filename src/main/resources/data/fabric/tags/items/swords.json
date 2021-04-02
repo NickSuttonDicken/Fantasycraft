@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "fantasycraft:mithril_sword",
+    "fantasycraft:dwarven_sword",
+    "fantasycraft:elven_sword",
+    "fantasycraft:triton_sword"
+  ]
+}

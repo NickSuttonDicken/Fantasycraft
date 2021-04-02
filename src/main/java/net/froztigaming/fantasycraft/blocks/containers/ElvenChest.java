@@ -8,10 +8,10 @@ import net.minecraft.sound.BlockSoundGroup;
 
 public class ElvenChest extends GenericFantasycraftChestBlock {
     public ElvenChest() {
-        super(FabricBlockSettings.of(Material.WOOD)
+        super(FabricBlockSettings.of(Material.METAL)
                         .hardness(1.0F)
-                        .sounds(BlockSoundGroup.WOOD)
-                        .breakByTool(FabricToolTags.AXES, 0),
+                        .sounds(BlockSoundGroup.METAL)
+                        .breakByTool(FabricToolTags.PICKAXES, 0),
                 ChestTypes.ELVEN,
                 () -> FantasycraftBlockEntityType.ELVEN_CHEST);
     }
