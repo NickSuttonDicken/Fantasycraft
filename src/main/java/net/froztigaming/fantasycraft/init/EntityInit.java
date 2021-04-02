@@ -20,7 +20,7 @@ public class EntityInit {
             createTrident(ItemInit.TRITON_TRIDENT));
 
 
-    public static void init() {
+    public static void registerEntities() {
         for (Identifier id : ENTITY_TYPES.keySet()) {
             Registry.register(Registry.ENTITY_TYPE, id, ENTITY_TYPES.get(id));
         }

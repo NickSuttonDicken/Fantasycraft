@@ -21,6 +21,8 @@ import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -48,6 +50,7 @@ public class ItemInit {
 
     //Food
     public static final Item SILVER_FLESH = new Item(new Item.Settings().group(Fantasycraft).food(new  FoodComponent.Builder().hunger(6).saturationModifier(1.2F).meat().build()));
+    public static final Item UNSEEN_EYE = new Item(new Item.Settings().group(Fantasycraft).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).alwaysEdible().statusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 1800, 0), 1.0F).alwaysEdible().build()));
 
     //Items
     public static final MithrilIngot MITHRIL_INGOT = new MithrilIngot(new Item.Settings().group(Fantasycraft).fireproof());
@@ -116,9 +119,9 @@ public class ItemInit {
     public static void registerItems()
     {
         {
-            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_flesh"), SILVER_FLESH);
+
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "stone_rod"), STONE_ROD);
-            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hobbit_ring"), HOBBIT_RING);
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "unseen_eye"), UNSEEN_EYE);
 
             if (bronzeEnable)
             {
@@ -143,7 +146,8 @@ public class ItemInit {
             {
                 //Items
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_ingot"), SILVER_INGOT);
-                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_arrow_head"), SILVER_ARROW_HEAD);
+                //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_arrow_head"), SILVER_ARROW_HEAD);
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silver_flesh"), SILVER_FLESH);
 
                 //Tools
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "elven_pickaxe"), ELVEN_PICKAXE);
@@ -197,6 +201,10 @@ public class ItemInit {
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_chestplate"), MITHRIL_CHESTPLATE);
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_leggings"), MITHRIL_LEGGINGS);
                 Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mithril_boots"), MITHRIL_BOOTS);
+            }
+            if (mithrilEnable && prismarineEnable && silverEnable && bronzeEnable)
+            {
+                Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hobbit_ring"), HOBBIT_RING);
             }
         }
     }

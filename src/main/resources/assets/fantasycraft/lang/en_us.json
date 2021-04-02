@@ -7,6 +7,7 @@
   "block.fantasycraft.bronze_ore" : "Bronze Ore",
   "block.fantasycraft.prismarine_block" : "Block of Prismarine",
   "block.fantasycraft.dwarven_blast_furnace" : "Dwarven Blast Furnace",
+  "block.fantasycraft.elven_chest": "Elven Chest",
 
   "item.fantasycraft.dwarven_sword" : "Dwarven Sword",
   "item.fantasycraft.dwarven_pickaxe" : "Dwarven Pickaxe",
@@ -19,6 +20,7 @@
   "item.fantasycraft.elven_shovel" : "Elven Shovel",
   "item.fantasycraft.elven_hoe" : "Elven Hoe",
   "item.fantasycraft.elven_bow" : "Elven Bow",
+  "item.fantasycraft.triton_trident" : "Triton Triton",
   "item.fantasycraft.triton_sword" : "Triton Sword",
   "item.fantasycraft.triton_pickaxe" : "Triton Pickaxe",
   "item.fantasycraft.triton_axe" : "Triton Axe",
@@ -37,6 +39,9 @@
   "item.fantasycraft.elven_arrow" : "Elven Arrow",
   "item.fantasycraft.silver_arrow_head" : "Silver Arrow Head",
   "item.fantasycraft.stone_rod" : "Stone Rod",
+  "item.fantasycraft.unseen_eye": "Eye of the Unseen",
+  "item.fantasycraft.hobbit_ring": "Hobbit Ring",
+  "item.fantasycraft.silver_flesh": "Silver Flesh",
 
   "item.fantasycraft.dwarven_armor.tooltip_1" : "Full Set Bonus:",
   "item.fantasycraft.dwarven_armor.tooltip_2" : "Haste",
@@ -67,6 +72,8 @@
   "item.fantasycraft.mithril_chestplate" : "Mithril Chestplate",
   "item.fantasycraft.mithril_leggings" : "Mithril Leggings",
   "item.fantasycraft.mithril_boots" : "Mithril Boots",
+
+  "enchantment.fantasycraft.poison": "Poison",
 
   "itemGroup.fantasycraft.general" : "Fantasycraft"
 }

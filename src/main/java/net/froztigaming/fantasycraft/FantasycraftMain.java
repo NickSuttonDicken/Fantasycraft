@@ -38,6 +38,7 @@ public class FantasycraftMain implements ModInitializer {
 		ModConfiguredFeatures.Features();
 		FantasycraftBlockEntityType.registerBlockEntities();
 		FantasycraftScreenHandlerType.registerScreenHandlers();
-		EntityInit.init();
+		EntityInit.registerEntities();
+		EnchantmentInit.registerEnchantments();
 	}
 }

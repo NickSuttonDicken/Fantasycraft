@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MMM",
+    " # ",
+    "XXX"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:golden_carrot"
+    },
+    "#": {
+      "item": "minecraft:ender_eye"
+    },
+    "X": {
+      "item": "minecraft:fermented_spider_eye"
+    }
+  },
+  "result": {
+    "item": "fantasycraft:unseen_eye"
+  }
+}

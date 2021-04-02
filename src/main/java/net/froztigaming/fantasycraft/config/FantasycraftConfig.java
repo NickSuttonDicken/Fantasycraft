@@ -13,7 +13,7 @@ public class FantasycraftConfig extends PartitioningSerializer.GlobalData {
     public Metals METALS = new Metals();
     public BonusEffects BONUSEFFECTS = new BonusEffects();
 
-    @Config(name = "metals")
+    @Config(name = "Metals")
     public static class Metals implements ConfigData
     {
         @Comment("\n"
