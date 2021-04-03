@@ -98,8 +98,8 @@ public class BlockInit {
             }
 
             if (mithrilEnable) {
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_ore"), new BlockItem(MITHRIL_ORE, new FabricItemSettings().group(Fantasycraft)));
-                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_block"), new BlockItem(MITHRIL_BLOCK, new FabricItemSettings().group(Fantasycraft)));
+                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_ore"), new BlockItem(MITHRIL_ORE, new FabricItemSettings().group(Fantasycraft).fireproof()));
+                Registry.register(Registry.ITEM, new Identifier(FantasycraftMain.MOD_ID, "mithril_block"), new BlockItem(MITHRIL_BLOCK, new FabricItemSettings().group(Fantasycraft).fireproof()));
             }
         }
     }
