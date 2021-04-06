@@ -46,11 +46,13 @@ public class TritonTridentEntity extends PersistentProjectileEntity {
     private ItemStack trident;
     public int returnTimer;
     private boolean dealtDamage;
+    private SoundEvent sound;
 
 
     public TritonTridentEntity(EntityType<? extends TritonTridentEntity> entityType, World world, TritonTrident item) {
         super(entityType, world);
         this.trident = new ItemStack(item);
+        this.sound = this.getHitSound();
     }
 
     public TritonTridentEntity(World world, LivingEntity owner, TritonTrident item, ItemStack stack) {
@@ -140,6 +142,11 @@ public class TritonTridentEntity extends PersistentProjectileEntity {
     @Nullable
     protected EntityHitResult getEntityCollision(Vec3d currentPosition, Vec3d nextPosition) {
         return this.dealtDamage ? null : super.getEntityCollision(currentPosition, nextPosition);
+    }
+
+    @Override
+    protected SoundEvent getHitSound() {
+        return SoundEvents.ITEM_TRIDENT_HIT_GROUND;
     }
 
     @Override

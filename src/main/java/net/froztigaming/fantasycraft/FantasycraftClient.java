@@ -42,8 +42,6 @@ import java.util.UUID;
 @Environment(EnvType.CLIENT)
 public class FantasycraftClient implements ClientModInitializer {
 
-    public static final Queue<Integer> TRIDENT_QUEUE = new LinkedList<>();
-
 
     @Override
     public void onInitializeClient() {

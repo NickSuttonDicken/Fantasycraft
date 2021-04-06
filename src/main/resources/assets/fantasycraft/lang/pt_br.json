@@ -7,7 +7,7 @@
   "block.fantasycraft.bronze_ore" : "Minério de Bronze",
   "block.fantasycraft.prismarine_block" : "Bloco de Prismarino",
   "block.fantasycraft.dwarven_blast_furnace" : "Alto-Forno Dwarven",
-  "block.fantasycraft.elven_chest": "Elven Chest",
+  "block.fantasycraft.elven_chest": "Baú Élfico",
 
   "item.fantasycraft.dwarven_sword" : "Espada Dwarven",
   "item.fantasycraft.dwarven_pickaxe" : "Picareta Dwarven",
@@ -20,7 +20,7 @@
   "item.fantasycraft.elven_shovel" : "Pá Élfica",
   "item.fantasycraft.elven_hoe" : "Enxada Élfica",
   "item.fantasycraft.elven_bow" : "Arco Élfico",
-  "item.fantasycraft.triton_trident" : "Triton Trident",
+  "item.fantasycraft.triton_trident" : "Tridente de Tritão",
   "item.fantasycraft.triton_sword" : "Espada Tritão",
   "item.fantasycraft.triton_pickaxe" : "Picareta Tritão",
   "item.fantasycraft.triton_axe" : "Machado Tritão",
@@ -39,9 +39,9 @@
   "item.fantasycraft.elven_arrow" : "Flecha Élfica",
   "item.fantasycraft.silver_arrow_head" : "Cabeça de Flecha de Prata",
   "item.fantasycraft.stone_rod" : "Haste de Pedra",
-  "item.fantasycraft.unseen_eye": "Eye of the Unseen",
-  "item.fantasycraft.hobbit_ring": "Hobbit Ring",
-  "item.fantasycraft.silver_flesh": "Silver Flesh",
+  "item.fantasycraft.unseen_eye": "Olho do Invisível",
+  "item.fantasycraft.hobbit_ring": "Anel de Hobbit",
+  "item.fantasycraft.silver_flesh": "Carne de Prata",
 
   "item.fantasycraft.dwarven_armor.tooltip_1" : "Bônus de conj. completo:",
   "item.fantasycraft.dwarven_armor.tooltip_2" : "Pressa",
@@ -73,7 +73,7 @@
   "item.fantasycraft.mithril_leggings" : "Calças de Mithril",
   "item.fantasycraft.mithril_boots" : "Botas de Mithril",
 
-  "enchantment.fantasycraft.poison": "Poison",
+  "enchantment.fantasycraft.poison": "Veneno",
 
   "itemGroup.fantasycraft.general" : "Fantasycraft"
 }
