@@ -1,10 +1,15 @@
 package net.froztigaming.fantasycraft.util;
 
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.minecraft.block.CropBlock;
+import net.minecraft.block.FarmlandBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.FoodComponents;
 import net.minecraft.world.World;
 
 public class ArmorEffects {
@@ -69,9 +74,12 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance regen = new StatusEffectInstance(StatusEffects.REGENERATION, 8, 0, false, false);
+            StatusEffectInstance regen = new StatusEffectInstance(StatusEffects.REGENERATION, 50, 0, false, false);
             {
-                player.addStatusEffect(regen);
+                if (player.age % 20 == 0)
+                {
+                    player.addStatusEffect(regen);
+                }
             }
         }
     }
@@ -144,6 +152,14 @@ public class ArmorEffects {
         if (player.isAlive())
         {
             player.removeStatusEffect(StatusEffects.NIGHT_VISION);
+        }
+    }
+
+    public static void removeRegenEffect(World world, PlayerEntity player)
+    {
+        if (player.isAlive())
+        {
+            player.removeStatusEffect(StatusEffects.REGENERATION);
         }
     }
 }

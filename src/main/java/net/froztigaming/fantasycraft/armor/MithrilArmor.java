@@ -29,6 +29,7 @@ public class MithrilArmor extends ArmorItem {
     public static final FantasycraftConfig.BonusEffects CONFIG2 = FantasycraftMain.CONFIG.BONUSEFFECTS;
 
     static boolean enableArmorSetBonuses = CONFIG2.enableArmorSetBonuses;
+    static boolean effectsCleared = true;
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
@@ -48,6 +49,15 @@ public class MithrilArmor extends ArmorItem {
                     feet.getItem() == ItemInit.MITHRIL_BOOTS))
             {
                 ArmorEffects.giveRegenEffect(world, player);
+                effectsCleared = false;
+            }
+            else
+            {
+                while (effectsCleared == false)
+                {
+                    ArmorEffects.removeRegenEffect(world, player);
+                    effectsCleared = true;
+                }
             }
         }
     }
