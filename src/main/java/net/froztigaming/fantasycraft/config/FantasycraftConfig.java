@@ -87,5 +87,12 @@ public class FantasycraftConfig extends PartitioningSerializer.GlobalData {
                 +"\n***********************"
                 +"\nEnables Set Bonus Effects for Armors")
         public boolean enableArmorSetBonuses = true;
+        @Comment("\n"
+                +"\n"
+                + "***********************"
+                +"\nNight Vision Effect"
+                +"\n***********************"
+                +"\nEnables Night Vision for Armors")
+        public boolean enableNightVision = true;
     }
 }

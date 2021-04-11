@@ -29,6 +29,7 @@ public class DwarvenArmor extends ArmorItem {
     public static final FantasycraftConfig.BonusEffects CONFIG2 = FantasycraftMain.CONFIG.BONUSEFFECTS;
 
     static boolean enableArmorSetBonuses = CONFIG2.enableArmorSetBonuses;
+    static boolean enableNightVision = CONFIG2.enableNightVision;
     static boolean effectsCleared = true;
 
     @Override
@@ -50,8 +51,12 @@ public class DwarvenArmor extends ArmorItem {
             {
                 ArmorEffects.giveHasteEffect(world, player);
                 ArmorEffects.giveFireResistanceEffect(world, player);
-                ArmorEffects.giveNightVisionEffect(world, player);
-                effectsCleared = false;
+                if (enableNightVision)
+                {
+                    ArmorEffects.giveNightVisionEffect(world, player);
+                    effectsCleared = false;
+                }
+
             }
             else {
                 while(effectsCleared == false)

@@ -30,6 +30,7 @@ public class ElvenArmor extends ArmorItem {
     public static final FantasycraftConfig.BonusEffects CONFIG2 = FantasycraftMain.CONFIG.BONUSEFFECTS;
 
     static boolean enableArmorSetBonuses = CONFIG2.enableArmorSetBonuses;
+    static boolean enableNightVision = CONFIG2.enableNightVision;
     static boolean effectsCleared = true;
 
     @Override
@@ -49,8 +50,13 @@ public class ElvenArmor extends ArmorItem {
                     feet.getItem() == ItemInit.ELVEN_BOOTS)) {
                 ArmorEffects.giveSpeedEffect(world, player);
                 ArmorEffects.giveJumpBoostEffect(world, player);
-                ArmorEffects.giveNightVisionEffect(world, player);
-                effectsCleared = false;
+
+                if (enableNightVision)
+                {
+                    ArmorEffects.giveNightVisionEffect(world, player);
+                    effectsCleared = false;
+                }
+
             } else {
                 while (effectsCleared == false) {
                     ArmorEffects.removeNightVisionEffect(world, player);
