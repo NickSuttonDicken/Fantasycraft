@@ -88,9 +88,12 @@ public class ArmorEffects {
     {
         if (player.isAlive())
         {
-            StatusEffectInstance nightVision = new StatusEffectInstance(StatusEffects.NIGHT_VISION, 99999999, 0, false, false);
+            StatusEffectInstance nightVision = new StatusEffectInstance(StatusEffects.NIGHT_VISION, 400, 0, false, false);
             {
-                player.addStatusEffect(nightVision);
+                if (player.age % 20 == 0)
+                {
+                    player.addStatusEffect(nightVision);
+                }
             }
         }
     }
