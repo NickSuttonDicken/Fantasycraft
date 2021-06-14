@@ -9,6 +9,7 @@ import net.froztigaming.fantasycraft.blocks.containers.GenericFantasycraftChestB
 import net.froztigaming.fantasycraft.init.FantasycraftScreenHandlerType;
 import net.froztigaming.fantasycraft.screenhandlers.FantasycraftChestScreenHandler;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.*;
 import net.minecraft.client.block.ChestAnimationProgress;
@@ -16,7 +17,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.sound.SoundCategory;
@@ -24,17 +25,19 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Tickable;
+import net.minecraft.util.*;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 @EnvironmentInterfaces({@EnvironmentInterface(
         value = EnvType.CLIENT,
         itf = ChestAnimationProgress.class
 )})
-public class GenericFantasycraftChestEntity extends LootableContainerBlockEntity implements ChestAnimationProgress, Tickable {
+public class GenericFantasycraftChestEntity extends LootableContainerBlockEntity implements ChestAnimationProgress, BlockEntityProvider {
 
     private DefaultedList<ItemStack> chestContents;
     protected float lidAngle;
@@ -44,8 +47,8 @@ public class GenericFantasycraftChestEntity extends LootableContainerBlockEntity
     private final int inventorySize;
     ChestTypes type;
 
-    public GenericFantasycraftChestEntity(BlockEntityType<? extends GenericFantasycraftChestEntity> entity, ChestTypes type) {
-        super(entity);
+    public GenericFantasycraftChestEntity(BlockEntityType<? extends GenericFantasycraftChestEntity> entity, BlockPos blockPos, BlockState blockState, ChestTypes type) {
+        super(entity, blockPos, blockState);
         inventorySize = type.size;
         this.type = type;
         chestContents = DefaultedList.ofSize(inventorySize, ItemStack.EMPTY);
@@ -101,25 +104,25 @@ public class GenericFantasycraftChestEntity extends LootableContainerBlockEntity
         return true;
     }
 
-    @Override
-    public void fromTag(BlockState state, CompoundTag tag) {
-        super.fromTag(state, tag);
+
+    public void readNbt(NbtCompound tag) {
+        super.readNbt(tag);
         this.chestContents = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
         if (!this.deserializeLootTable(tag)) {
-            Inventories.fromTag(tag, this.chestContents);
+            Inventories.readNbt(tag, this.chestContents);
         }
     }
 
-    @Override
-    public CompoundTag toTag(CompoundTag tag) {
-        super.toTag(tag);
+
+    public NbtCompound writeNbt(NbtCompound tag) {
+        super.writeNbt(tag);
         if (!this.serializeLootTable(tag)) {
-            Inventories.toTag(tag, this.chestContents);
+            Inventories.writeNbt(tag, this.chestContents);
         }
         return tag;
     }
 
-    @Override
+
     public void tick() {
         int i = this.pos.getX();
         int j = this.pos.getY();
@@ -213,5 +216,17 @@ public class GenericFantasycraftChestEntity extends LootableContainerBlockEntity
             this.world.addSyncedBlockEvent(this.pos, block, 1, this.numPlayersUsing);
             this.world.updateNeighborsAlways(this.pos, block);
         }
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return BlockEntityProvider.super.getTicker(world, state, type);
     }
 }

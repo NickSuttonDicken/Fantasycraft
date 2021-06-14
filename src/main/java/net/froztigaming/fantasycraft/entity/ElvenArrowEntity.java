@@ -26,8 +26,8 @@ import net.minecraft.item.ArrowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.network.Packet;
 import net.minecraft.network.packet.s2c.play.GameStateChangeS2CPacket;
 import net.minecraft.particle.ParticleTypes;
@@ -98,7 +98,7 @@ public class ElvenArrowEntity extends PersistentProjectileEntity {
     }
 
     public static int getCustomPotionColor(ItemStack stack) {
-        CompoundTag compoundTag = stack.getTag();
+        NbtCompound compoundTag = stack.getTag();
         return compoundTag != null && compoundTag.contains("CustomPotionColor", 99) ? compoundTag.getInt("CustomPotionColor") : -1;
     }
 
@@ -164,8 +164,8 @@ public class ElvenArrowEntity extends PersistentProjectileEntity {
         this.dataTracker.set(COLOR, color);
     }
 
-    public void writeCustomDataToTag(CompoundTag tag) {
-        super.writeCustomDataToTag(tag);
+    public void writeCustomDataToTag(NbtCompound tag) {
+        super.writeNbt(tag);
         if (this.potion != Potions.EMPTY && this.potion != null) {
             tag.putString("Potion", Registry.POTION.getId(this.potion).toString());
         }
@@ -175,12 +175,12 @@ public class ElvenArrowEntity extends PersistentProjectileEntity {
         }
 
         if (!this.effects.isEmpty()) {
-            ListTag listTag = new ListTag();
+            NbtList listTag = new NbtList();
             Iterator var3 = this.effects.iterator();
 
             while (var3.hasNext()) {
                 StatusEffectInstance statusEffectInstance = (StatusEffectInstance) var3.next();
-                listTag.add(statusEffectInstance.toTag(new CompoundTag()));
+                listTag.add(statusEffectInstance.writeNbt(new NbtCompound()));
             }
 
             tag.put("CustomPotionEffects", listTag);
@@ -188,8 +188,8 @@ public class ElvenArrowEntity extends PersistentProjectileEntity {
 
     }
 
-    public void readCustomDataFromTag(CompoundTag tag) {
-        super.readCustomDataFromTag(tag);
+    public void readCustomDataFromTag(NbtCompound tag) {
+        super.readCustomDataFromNbt(tag);
         if (tag.contains("Potion", 8)) {
             this.potion = PotionUtil.getPotion(tag);
         }

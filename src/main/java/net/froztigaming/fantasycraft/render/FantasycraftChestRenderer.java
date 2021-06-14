@@ -15,19 +15,22 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderDispatcher;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
+import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.LightmapCoordinatesRetriever;
+import net.minecraft.client.render.entity.TridentEntityRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.client.util.math.Vector3f;
+import net.minecraft.util.math.Vec3f;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-public class FantasycraftChestRenderer<T extends BlockEntity> extends BlockEntityRenderer<T> {
+public class FantasycraftChestRenderer<T extends BlockEntity> implements BlockEntityRenderer<T> {
 
     private final ModelPart chestLid;
+    ChestBlockEntityRenderer
     private final ModelPart chestBottom;
     private final ModelPart chestLock;
 
@@ -35,7 +38,7 @@ public class FantasycraftChestRenderer<T extends BlockEntity> extends BlockEntit
         super(tileEntityRendererDispatcher);
 
         this.chestBottom = new ModelPart(64, 64, 0, 19);
-        this.chestBottom.addCuboid(1.0F, 0.0F, 1.0F, 14.0F, 10.0F, 14.0F, 0.0F);
+        this.chestBottom.(1.0F, 0.0F, 1.0F, 14.0F, 10.0F, 14.0F, 0.0F);
         this.chestLid = new ModelPart(64, 64, 0, 0);
         this.chestLid.addCuboid(1.0F, 0.0F, 0.0F, 14.0F, 5.0F, 14.0F, 0.0F);
         this.chestLid.pivotY = 9.0F;
@@ -61,7 +64,7 @@ public class FantasycraftChestRenderer<T extends BlockEntity> extends BlockEntit
             matrices.push();
             float f = ((Direction)blockstate.get(ChestBlock.FACING)).asRotation();
             matrices.translate(0.5D, 0.5D, 0.5D);
-            matrices.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(-f));
+            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-f));
             matrices.translate(-0.5D, -0.5D, -0.5D);
 
             DoubleBlockProperties.PropertySource propertySource2;
